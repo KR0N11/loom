@@ -71,6 +71,7 @@ class EvalResults(BaseModel):
     rows: list[EvalRow] = Field(default_factory=list)
     baseline_rows: list[BaselineRow] = Field(default_factory=list)
     routing: dict[str, float] = Field(default_factory=dict)
+    stopped_reason: str | None = None
 
     # ----- aggregate helpers used by report and gate -----
 
@@ -209,8 +210,13 @@ def run_benchmark(
     resume: bool = False,
     on_progress: Callable[[EvalRow], None] | None = None,
     run_question: RunQuestion | None = None,
+    max_cost_usd: float | None = None,
 ) -> EvalResults:
-    """Run every (question, injection) pair, scoring and persisting as it goes."""
+    """Run every (question, injection) pair, scoring and persisting as it goes.
+
+    `max_cost_usd` is a hard spend cap: the loop stops before starting a new
+    question once the summed LLM cost of this run reaches it.
+    """
     settings = settings or get_settings()
     run_question = run_question or _default_run_question()
     out_dir = out_dir or (
@@ -236,11 +242,17 @@ def run_benchmark(
         jobs.append((q, None))
         if q.id in injection_ids:
             jobs.extend((q, mode) for mode in injection_modes)
+    spent = sum(r.cost_usd for r in results.rows)
     for question, mode in jobs:
         if (question.id, mode) in done:
             continue
+        # Stop before the cap is exceeded so a runaway run cannot burn the budget.
+        if max_cost_usd is not None and spent >= max_cost_usd:
+            results.stopped_reason = f"spend cap reached: ${spent:.2f} >= ${max_cost_usd:.2f}"
+            break
         row = _run_one(question, mode, settings, provider, run_question)
         results.rows.append(row)
+        spent += row.cost_usd
         results.save(results_path)
         if on_progress:
             on_progress(row)

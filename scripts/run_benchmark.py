@@ -75,6 +75,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--baselines", default=None, help="comma list: qwen,sqlcoder,tapas,router")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument(
+        "--max-cost-usd", type=float, default=5.0, help="hard spend cap for this run (default 5)"
+    )
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.WARNING)
     settings = get_settings()
@@ -92,7 +95,10 @@ def main(argv: list[str] | None = None) -> int:
         out_dir=out_dir,
         resume=args.resume,
         on_progress=_progress,
+        max_cost_usd=args.max_cost_usd,
     )
+    if results.stopped_reason:
+        print(f"STOPPED EARLY: {results.stopped_reason}")
     if args.baselines:
         sampled = bench.sample(args.sample, args.seed)
         _run_baselines([b.strip() for b in args.baselines.split(",")], sampled, results, settings)

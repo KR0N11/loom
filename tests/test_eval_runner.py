@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -172,3 +173,40 @@ def test_resolve_modes() -> None:
     assert resolve_modes(None) == ()
     with pytest.raises(ValueError):
         resolve_modes("scalee")
+
+
+# The spend cap stops the loop before another question starts once cost reaches the cap.
+def test_run_benchmark_spend_cap(tmp_path: Path, settings: Settings) -> None:
+    calls: list[str] = []
+
+    def fake_run(question: str, dataset: str, **kw: Any) -> Any:
+        calls.append(question)
+        state = LoomState(question=question, dataset=dataset)
+        state.usage = LLMUsage(cost_usd=0.6)
+        return state
+
+    qs = [
+        BenchmarkQuestion(
+            id=f"q{i}",
+            dataset="demo",
+            question=f"q{i}?",
+            difficulty=Difficulty.EASY,
+            analysis_type="lookup",
+            gold_sql="SELECT 1",
+            gold_answer={"x": 1.0},
+            gold_columns=["x"],
+            gold_rows=[[1]],
+            generator="template",
+        )
+        for i in range(5)
+    ]
+    results = run_benchmark(
+        Benchmark(questions=qs),
+        settings=settings,
+        out_dir=tmp_path / "run",
+        run_question=fake_run,
+        max_cost_usd=1.0,
+    )
+    # 0.6 after q0 (< 1.0, continue), 1.2 after q1 (>= 1.0, stop before q2).
+    assert len(calls) == 2
+    assert results.stopped_reason is not None and "spend cap" in results.stopped_reason
