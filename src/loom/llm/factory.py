@@ -13,6 +13,11 @@ def get_provider(settings: Settings | None = None) -> LLMProvider:
         from loom.llm.bedrock_provider import BedrockProvider
 
         return BedrockProvider(settings.bedrock_model_id, settings.aws_region)
+    # Local/dev switch: run on the Claude subscription through the `claude -p` CLI.
+    if settings.llm_provider == LLMProviderName.CLAUDE_CODE:
+        from loom.llm.claude_code_provider import ClaudeCodeProvider
+
+        return ClaudeCodeProvider(settings.llm_model)
     from loom.llm.anthropic_provider import AnthropicProvider
 
     return AnthropicProvider(settings.llm_model, settings.anthropic_api_key)

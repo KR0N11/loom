@@ -163,10 +163,17 @@ class VerifierAgent:
             return checks, [], [record], False, u
         alt = dict(zip([_norm(c) for c in res.columns], res.rows[0], strict=False))
         has_nulls = any(v is None for v in res.rows[0])
+        # Positional fallback: models often alias columns differently from the key-number names
+        # (e.g. "Total paid (FL, 2022)" vs total_amount_paid). If the alternate row has exactly
+        # one numeric cell per key number, match by position instead of raising a false warning.
+        numeric_cells = [f for f in (_to_float(v) for v in res.rows[0]) if f is not None]
+        positional = len(numeric_cells) == len(ex.key_numbers)
         reconciled: list[KeyNumber] = []
-        for k in ex.key_numbers:
+        for idx, k in enumerate(ex.key_numbers):
             observed = _to_float(alt.get(_norm(k.name)))
-            # The alternate query must name every key number; a missing one cannot be confirmed.
+            if observed is None and positional:
+                observed = numeric_cells[idx]
+            # Neither a matching name nor a positional match: the number cannot be confirmed.
             if observed is None:
                 checks.append(
                     VerificationCheck(

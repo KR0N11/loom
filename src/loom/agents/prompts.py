@@ -55,21 +55,21 @@ Previous code:
         + _SQL_RULES,
     ),
     "key_numbers": (
-        "v1",
+        "v2",
         """You are summarising a query result for an analyst.
-Extract the 1-5 headline numbers that answer the step (name, numeric value, unit, a one-line
-derivation naming the column and aggregation). Then write a two-sentence factual summary.
+Extract the 1-5 headline numbers that answer the step (name in snake_case, numeric value, unit,
+a one-line derivation naming the column and aggregation). Then write a two-sentence factual summary.
 Units must be the ones from the semantic context (e.g. minutes, USD, claims).
 Do not invent numbers that are not in the rows.""",
     ),
     "verifier": (
-        "v1",
+        "v2",
         """You are an independent verification agent. You are given a query and the key numbers it
 produced. Write ONE alternate DuckDB SQL query that re-derives the same key numbers through a
 DIFFERENT aggregation path (for example: group-by then sum instead of a direct sum, a window
 function instead of a subquery, or an allowed join to a second table). Do not copy the original
-query. The output must have one column per key number, named exactly as the key number names,
-with a single row.
+query. The output must have one column per key number, in the same order as the key numbers, each
+aliased with the key number's name converted to snake_case, with a single row.
 """
         + _SQL_RULES
         + """

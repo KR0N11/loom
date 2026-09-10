@@ -117,3 +117,26 @@ def test_inject_modes_are_pure():
         changed = out[0].key_numbers[0] != ex.key_numbers[0] or out[0].rows != ex.rows
         assert changed, mode
     assert inject([ex], "off_by_year")[0].rows[1][0] == "2025-01-05"
+
+
+# An alternate query that aliases its column differently still reconciles by position.
+def test_reconcile_positional_fallback(settings, tiny_db):
+    alt = '{"alternate_sql": "SELECT SUM(amount) AS grand_total FROM demo_sales", "rationale": ""}'
+    state = demo_state(plan=demo_plan(), semantic=demo_semantic(), executions=[demo_execution()])
+    out = VerifierAgent(FakeProvider([alt]), DirectDuckDBExecutor(), settings).run(state)
+    rec = {c.name: c for c in out["verification"].checks}["reconcile:total_sales"]
+    assert rec.status is CheckStatus.PASS and rec.observed == 510.0
+
+
+# Two key numbers but one numeric cell: no positional match, so the second is a warning not a guess.
+def test_reconcile_no_positional_when_counts_differ(settings, tiny_db):
+    from loom.agents.schemas import KeyNumber
+
+    alt = '{"alternate_sql": "SELECT SUM(amount) AS grand_total FROM demo_sales", "rationale": ""}'
+    ex = demo_execution()
+    ex.key_numbers = ex.key_numbers + [KeyNumber(name="row_count", value=5, unit="rows")]
+    state = demo_state(plan=demo_plan(), semantic=demo_semantic(), executions=[ex])
+    out = VerifierAgent(FakeProvider([alt]), DirectDuckDBExecutor(), settings).run(state)
+    checks = {c.name: c.status for c in out["verification"].checks}
+    assert checks["reconcile:total_sales"] is CheckStatus.WARN
+    assert checks["reconcile:row_count"] is CheckStatus.WARN

@@ -17,6 +17,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class LLMProviderName(StrEnum):
     ANTHROPIC = "anthropic"
     BEDROCK = "bedrock"
+    CLAUDE_CODE = "claude_code"
 
 
 class VectorBackend(StrEnum):
