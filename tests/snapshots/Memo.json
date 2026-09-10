@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "ChartSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Path"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "x": {
+          "title": "X",
+          "type": "string"
+        },
+        "y": {
+          "title": "Y",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "kind",
+        "x",
+        "y"
+      ],
+      "title": "ChartSpec",
+      "type": "object"
+    },
+    "ExecutionLanguage": {
+      "enum": [
+        "sql",
+        "pandas"
+      ],
+      "title": "ExecutionLanguage",
+      "type": "string"
+    },
+    "QueryRecord": {
+      "additionalProperties": false,
+      "description": "One executed query, kept for the audit appendix.",
+      "properties": {
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "elapsed_s": {
+          "default": 0.0,
+          "title": "Elapsed S",
+          "type": "number"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "language": {
+          "$ref": "#/$defs/ExecutionLanguage"
+        },
+        "ok": {
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "row_count": {
+          "default": 0,
+          "title": "Row Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attempt",
+        "language",
+        "code",
+        "ok"
+      ],
+      "title": "QueryRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "appendix_queries": {
+      "items": {
+        "$ref": "#/$defs/QueryRecord"
+      },
+      "title": "Appendix Queries",
+      "type": "array"
+    },
+    "caveats": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Caveats",
+      "type": "array"
+    },
+    "charts": {
+      "items": {
+        "$ref": "#/$defs/ChartSpec"
+      },
+      "title": "Charts",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "headline": {
+      "title": "Headline",
+      "type": "string"
+    },
+    "recommendation": {
+      "title": "Recommendation",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "verification_summary": {
+      "default": "",
+      "title": "Verification Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "headline",
+    "findings",
+    "recommendation"
+  ],
+  "title": "Memo",
+  "type": "object"
+}

@@ -1,0 +1,33 @@
+{
+  "$defs": {
+    "ExecutionLanguage": {
+      "enum": [
+        "sql",
+        "pandas"
+      ],
+      "title": "ExecutionLanguage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "language": {
+      "$ref": "#/$defs/ExecutionLanguage"
+    },
+    "rationale": {
+      "default": "",
+      "title": "Rationale",
+      "type": "string"
+    }
+  },
+  "required": [
+    "language",
+    "code"
+  ],
+  "title": "ExecutorOutput",
+  "type": "object"
+}

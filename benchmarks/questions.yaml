@@ -1,0 +1,4272 @@
+# Loom benchmark, generated 2026-09-10 11:13 seed=0
+# generators: template=172 llm=0
+# All questions start reviewed: false. Flip to true (and add review_note) after a human check.
+# Add LLM-proposed candidates with: uv run python scripts/generate_benchmark.py --n-llm 30
+questions:
+- id: ttc-subway-count-year-2023
+  dataset: ttc
+  question: How many subway delay incidents were recorded in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    delay_count: 22943.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 22943
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-count-year-2024
+  dataset: ttc
+  question: How many subway delay incidents were recorded in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    delay_count: 26450.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 26450
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-total-minutes-line-year-yu_2023
+  dataset: ttc
+  question: What was the total delay minutes on subway line YU in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE line = 'YU' AND year(delay_date) = 2023
+  gold_answer:
+    total_delay_minutes: 35965.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 35965
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-total-minutes-line-year-bd_2024
+  dataset: ttc
+  question: What was the total delay minutes on subway line BD in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE line = 'BD' AND year(delay_date) = 2024
+  gold_answer:
+    total_delay_minutes: 29163.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 29163
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-total-minutes-line-year-yu_2024
+  dataset: ttc
+  question: What was the total delay minutes on subway line YU in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE line = 'YU' AND year(delay_date) = 2024
+  gold_answer:
+    total_delay_minutes: 42357.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 42357
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-total-minutes-line-year-shp_2023
+  dataset: ttc
+  question: What was the total delay minutes on subway line SHP in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE line = 'SHP' AND year(delay_date) =
+    2023
+  gold_answer:
+    total_delay_minutes: 2855.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 2855
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-total-minutes-line-year-bd_2023
+  dataset: ttc
+  question: What was the total delay minutes on subway line BD in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE line = 'BD' AND year(delay_date) = 2023
+  gold_answer:
+    total_delay_minutes: 24459.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 24459
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-avg-delay-station-kennedy-bd-station
+  dataset: ttc
+  question: What is the average delay in minutes at KENNEDY BD STATION across all years?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(min_delay) AS avg_delay_minutes FROM ttc_subway_delays WHERE station = 'KENNEDY BD STATION'
+  gold_answer:
+    avg_delay_minutes: 2.3727325921591573
+  gold_columns:
+  - avg_delay_minutes
+  gold_rows:
+  - - 2.3727325921591573
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-avg-delay-station-bloor-station
+  dataset: ttc
+  question: What is the average delay in minutes at BLOOR STATION across all years?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(min_delay) AS avg_delay_minutes FROM ttc_subway_delays WHERE station = 'BLOOR STATION'
+  gold_answer:
+    avg_delay_minutes: 2.0351681957186543
+  gold_columns:
+  - avg_delay_minutes
+  gold_rows:
+  - - 2.0351681957186543
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-avg-delay-station-dundas-station
+  dataset: ttc
+  question: What is the average delay in minutes at DUNDAS STATION across all years?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(min_delay) AS avg_delay_minutes FROM ttc_subway_delays WHERE station = 'DUNDAS STATION'
+  gold_answer:
+    avg_delay_minutes: 1.8261421319796953
+  gold_columns:
+  - avg_delay_minutes
+  gold_rows:
+  - - 1.8261421319796953
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-avg-delay-station-eglinton-station
+  dataset: ttc
+  question: What is the average delay in minutes at EGLINTON STATION across all years?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(min_delay) AS avg_delay_minutes FROM ttc_subway_delays WHERE station = 'EGLINTON STATION'
+  gold_answer:
+    avg_delay_minutes: 3.2603406326034063
+  gold_columns:
+  - avg_delay_minutes
+  gold_rows:
+  - - 3.2603406326034063
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-avg-delay-station-kipling-station
+  dataset: ttc
+  question: What is the average delay in minutes at KIPLING STATION across all years?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(min_delay) AS avg_delay_minutes FROM ttc_subway_delays WHERE station = 'KIPLING STATION'
+  gold_answer:
+    avg_delay_minutes: 2.4554334554334556
+  gold_columns:
+  - avg_delay_minutes
+  gold_rows:
+  - - 2.4554334554334556
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-max-delay-year-2024
+  dataset: ttc
+  question: What was the single longest subway delay in minutes in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT max(min_delay) AS max_delay_minutes FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    max_delay_minutes: 716.0
+  gold_columns:
+  - max_delay_minutes
+  gold_rows:
+  - - 716
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics: []
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-max-delay-year-2023
+  dataset: ttc
+  question: What was the single longest subway delay in minutes in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT max(min_delay) AS max_delay_minutes FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    max_delay_minutes: 423.0
+  gold_columns:
+  - max_delay_minutes
+  gold_rows:
+  - - 423
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics: []
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-count-route-year-36_2024
+  dataset: ttc
+  question: How many bus delays did route 36 have in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_bus_delays WHERE route = '36' AND year(delay_date) = 2024
+  gold_answer:
+    delay_count: 1538.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 1538
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-count-route-year-29_2024
+  dataset: ttc
+  question: How many bus delays did route 29 have in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_bus_delays WHERE route = '29' AND year(delay_date) = 2024
+  gold_answer:
+    delay_count: 1382.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 1382
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-count-route-year-63_2024
+  dataset: ttc
+  question: How many bus delays did route 63 have in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_bus_delays WHERE route = '63' AND year(delay_date) = 2024
+  gold_answer:
+    delay_count: 1198.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 1198
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-count-route-year-7_2024
+  dataset: ttc
+  question: How many bus delays did route 7 have in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_bus_delays WHERE route = '7' AND year(delay_date) = 2024
+  gold_answer:
+    delay_count: 966.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 966
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-count-route-year-29_2023
+  dataset: ttc
+  question: How many bus delays did route 29 have in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_bus_delays WHERE route = '29' AND year(delay_date) = 2023
+  gold_answer:
+    delay_count: 1291.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 1291
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-total-minutes-incident-operations---operator
+  dataset: ttc
+  question: How many total delay minutes were caused by 'Operations - Operator' incidents on buses?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_bus_delays WHERE incident = 'Operations - Operator'
+  gold_answer:
+    total_delay_minutes: 307257.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 307257
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-total-minutes-incident-mechanical
+  dataset: ttc
+  question: How many total delay minutes were caused by 'Mechanical' incidents on buses?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_bus_delays WHERE incident = 'Mechanical'
+  gold_answer:
+    total_delay_minutes: 522752.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 522752
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-total-minutes-incident-collision---ttc
+  dataset: ttc
+  question: How many total delay minutes were caused by 'Collision - TTC' incidents on buses?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_bus_delays WHERE incident = 'Collision - TTC'
+  gold_answer:
+    total_delay_minutes: 99336.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 99336
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-total-minutes-incident-general-delay
+  dataset: ttc
+  question: How many total delay minutes were caused by 'General Delay' incidents on buses?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(min_delay) AS total_delay_minutes FROM ttc_bus_delays WHERE incident = 'General Delay'
+  gold_answer:
+    total_delay_minutes: 120039.0
+  gold_columns:
+  - total_delay_minutes
+  gold_rows:
+  - - 120039
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-streetcar-count-year-2023
+  dataset: ttc
+  question: How many streetcar delays were logged in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_streetcar_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    delay_count: 14398.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 14398
+  expected_tables:
+  - ttc_streetcar_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-streetcar-count-year-2024
+  dataset: ttc
+  question: How many streetcar delays were logged in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS delay_count FROM ttc_streetcar_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    delay_count: 14184.0
+  gold_columns:
+  - delay_count
+  gold_rows:
+  - - 14184
+  expected_tables:
+  - ttc_streetcar_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-code-description-count-2023
+  dataset: ttc
+  question: Which subway delay code description had the most incidents in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT c.description, count(*) AS delay_count FROM ttc_subway_delays d JOIN ttc_subway_delay_codes c ON d.code
+    = c.code WHERE year(d.delay_date) = 2023 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    delay_count: 3491.0
+  gold_columns:
+  - description
+  - delay_count
+  gold_rows:
+  - - Disorderly Patron
+    - 3491
+  expected_tables:
+  - ttc_subway_delays
+  - ttc_subway_delay_codes
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-code-description-count-2024
+  dataset: ttc
+  question: Which subway delay code description had the most incidents in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT c.description, count(*) AS delay_count FROM ttc_subway_delays d JOIN ttc_subway_delay_codes c ON d.code
+    = c.code WHERE year(d.delay_date) = 2024 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    delay_count: 3417.0
+  gold_columns:
+  - description
+  - delay_count
+  gold_rows:
+  - - Disorderly Patron
+    - 3417
+  expected_tables:
+  - ttc_subway_delays
+  - ttc_subway_delay_codes
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-trend-year-2023
+  dataset: ttc
+  question: How did the number of subway delays per month trend through 2023?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, count(*) AS delay_count FROM ttc_subway_delays WHERE year(delay_date)
+    = 2023 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    delay_count: 1738.0
+  gold_columns:
+  - month
+  - delay_count
+  gold_rows:
+  - - 2023-01
+    - 1738
+  - - 2023-02
+    - 1904
+  - - 2023-03
+    - 2105
+  - - 2023-04
+    - 1884
+  - - 2023-05
+    - 1918
+  - - 2023-06
+    - 1973
+  - - 2023-07
+    - 1850
+  - - 2023-08
+    - 1794
+  - - 2023-09
+    - 1827
+  - - 2023-10
+    - 1866
+  - - 2023-11
+    - 2017
+  - - 2023-12
+    - 2067
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-trend-year-2024
+  dataset: ttc
+  question: How did the number of subway delays per month trend through 2024?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, count(*) AS delay_count FROM ttc_subway_delays WHERE year(delay_date)
+    = 2024 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    delay_count: 2259.0
+  gold_columns:
+  - month
+  - delay_count
+  gold_rows:
+  - - 2024-01
+    - 2259
+  - - 2024-02
+    - 2102
+  - - 2024-03
+    - 2216
+  - - 2024-04
+    - 2247
+  - - 2024-05
+    - 2383
+  - - 2024-06
+    - 1931
+  - - 2024-07
+    - 2048
+  - - 2024-08
+    - 2323
+  - - 2024-09
+    - 2185
+  - - 2024-10
+    - 2276
+  - - 2024-11
+    - 2141
+  - - 2024-12
+    - 2339
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-minutes-line-shp_2023
+  dataset: ttc
+  question: Show the monthly total delay minutes on line SHP over 2023.
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE
+    line = 'SHP' AND year(delay_date) = 2023 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    total_delay_minutes: 232.0
+  gold_columns:
+  - month
+  - total_delay_minutes
+  gold_rows:
+  - - 2023-01
+    - 232
+  - - 2023-02
+    - 88
+  - - 2023-03
+    - 215
+  - - 2023-04
+    - 212
+  - - 2023-05
+    - 309
+  - - 2023-06
+    - 244
+  - - 2023-07
+    - 139
+  - - 2023-08
+    - 239
+  - - 2023-09
+    - 154
+  - - 2023-10
+    - 200
+  - - 2023-11
+    - 273
+  - - 2023-12
+    - 550
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-minutes-line-bd_2024
+  dataset: ttc
+  question: Show the monthly total delay minutes on line BD over 2024.
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE
+    line = 'BD' AND year(delay_date) = 2024 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    total_delay_minutes: 2196.0
+  gold_columns:
+  - month
+  - total_delay_minutes
+  gold_rows:
+  - - 2024-01
+    - 2196
+  - - 2024-02
+    - 1940
+  - - 2024-03
+    - 2449
+  - - 2024-04
+    - 3074
+  - - 2024-05
+    - 3122
+  - - 2024-06
+    - 1613
+  - - 2024-07
+    - 2579
+  - - 2024-08
+    - 2666
+  - - 2024-09
+    - 2241
+  - - 2024-10
+    - 2521
+  - - 2024-11
+    - 2193
+  - - 2024-12
+    - 2569
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-minutes-line-shp_2024
+  dataset: ttc
+  question: Show the monthly total delay minutes on line SHP over 2024.
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE
+    line = 'SHP' AND year(delay_date) = 2024 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    total_delay_minutes: 287.0
+  gold_columns:
+  - month
+  - total_delay_minutes
+  gold_rows:
+  - - 2024-01
+    - 287
+  - - 2024-02
+    - 166
+  - - 2024-03
+    - 222
+  - - 2024-04
+    - 300
+  - - 2024-05
+    - 201
+  - - 2024-06
+    - 264
+  - - 2024-07
+    - 142
+  - - 2024-08
+    - 111
+  - - 2024-09
+    - 110
+  - - 2024-10
+    - 423
+  - - 2024-11
+    - 212
+  - - 2024-12
+    - 233
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-minutes-line-yu_2024
+  dataset: ttc
+  question: Show the monthly total delay minutes on line YU over 2024.
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE
+    line = 'YU' AND year(delay_date) = 2024 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    total_delay_minutes: 3859.0
+  gold_columns:
+  - month
+  - total_delay_minutes
+  gold_rows:
+  - - 2024-01
+    - 3859
+  - - 2024-02
+    - 3370
+  - - 2024-03
+    - 3831
+  - - 2024-04
+    - 3740
+  - - 2024-05
+    - 3803
+  - - 2024-06
+    - 2764
+  - - 2024-07
+    - 3059
+  - - 2024-08
+    - 3814
+  - - 2024-09
+    - 3407
+  - - 2024-10
+    - 3362
+  - - 2024-11
+    - 3198
+  - - 2024-12
+    - 4150
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-minutes-line-yu_2023
+  dataset: ttc
+  question: Show the monthly total delay minutes on line YU over 2023.
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE
+    line = 'YU' AND year(delay_date) = 2023 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    total_delay_minutes: 3024.0
+  gold_columns:
+  - month
+  - total_delay_minutes
+  gold_rows:
+  - - 2023-01
+    - 3024
+  - - 2023-02
+    - 2669
+  - - 2023-03
+    - 3312
+  - - 2023-04
+    - 3424
+  - - 2023-05
+    - 2607
+  - - 2023-06
+    - 3298
+  - - 2023-07
+    - 3029
+  - - 2023-08
+    - 2756
+  - - 2023-09
+    - 3237
+  - - 2023-10
+    - 3041
+  - - 2023-11
+    - 2543
+  - - 2023-12
+    - 3025
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-monthly-minutes-line-bd_2023
+  dataset: ttc
+  question: Show the monthly total delay minutes on line BD over 2023.
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, sum(min_delay) AS total_delay_minutes FROM ttc_subway_delays WHERE
+    line = 'BD' AND year(delay_date) = 2023 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    total_delay_minutes: 2203.0
+  gold_columns:
+  - month
+  - total_delay_minutes
+  gold_rows:
+  - - 2023-01
+    - 2203
+  - - 2023-02
+    - 1704
+  - - 2023-03
+    - 2380
+  - - 2023-04
+    - 2047
+  - - 2023-05
+    - 2455
+  - - 2023-06
+    - 2366
+  - - 2023-07
+    - 1829
+  - - 2023-08
+    - 1862
+  - - 2023-09
+    - 2272
+  - - 2023-10
+    - 1714
+  - - 2023-11
+    - 1845
+  - - 2023-12
+    - 1782
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-monthly-avg-delay-2024
+  dataset: ttc
+  question: What was the average bus delay in minutes by month in 2024?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, avg(min_delay) AS avg_delay_minutes FROM ttc_bus_delays WHERE year(delay_date)
+    = 2024 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    avg_delay_minutes: 21.67508949252474
+  gold_columns:
+  - month
+  - avg_delay_minutes
+  gold_rows:
+  - - 2024-01
+    - 21.67508949252474
+  - - 2024-02
+    - 22.893667861409796
+  - - 2024-03
+    - 28.29624217118998
+  - - 2024-04
+    - 22.222378748239084
+  - - 2024-05
+    - 20.542276720351392
+  - - 2024-06
+    - 18.267435573977295
+  - - 2024-07
+    - 19.050654205607476
+  - - 2024-08
+    - 20.983803353658537
+  - - 2024-09
+    - 19.599586776859503
+  - - 2024-10
+    - 20.516211061665608
+  - - 2024-11
+    - 23.424089512944274
+  - - 2024-12
+    - 18.702826433121018
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-bus-monthly-avg-delay-2023
+  dataset: ttc
+  question: What was the average bus delay in minutes by month in 2023?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(delay_date, '%Y-%m') AS month, avg(min_delay) AS avg_delay_minutes FROM ttc_bus_delays WHERE year(delay_date)
+    = 2023 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    avg_delay_minutes: 23.623958333333334
+  gold_columns:
+  - month
+  - avg_delay_minutes
+  gold_rows:
+  - - 2023-01
+    - 23.623958333333334
+  - - 2023-02
+    - 20.88305775221663
+  - - 2023-03
+    - 21.74259303152406
+  - - 2023-04
+    - 18.688210961737333
+  - - 2023-05
+    - 20.165067650676505
+  - - 2023-06
+    - 20.528638497652583
+  - - 2023-07
+    - 19.904022988505748
+  - - 2023-08
+    - 21.377159309021113
+  - - 2023-09
+    - 21.384799044966176
+  - - 2023-10
+    - 19.342470694319207
+  - - 2023-11
+    - 18.481698113207546
+  - - 2023-12
+    - 18.205453512592314
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-line-compare-year-bd_shp_2023
+  dataset: ttc
+  question: Compare the average delay minutes on line BD versus line SHP in 2023.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN line = 'BD' THEN min_delay END) AS avg_delay_a, avg(CASE WHEN line = 'SHP' THEN min_delay
+    END) AS avg_delay_b FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    avg_delay_a: 2.5751737207833227
+    avg_delay_b: 3.905608755129959
+  gold_columns:
+  - avg_delay_a
+  - avg_delay_b
+  gold_rows:
+  - - 2.5751737207833227
+    - 3.905608755129959
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-line-compare-year-bd_yu_2023
+  dataset: ttc
+  question: Compare the average delay minutes on line BD versus line YU in 2023.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN line = 'BD' THEN min_delay END) AS avg_delay_a, avg(CASE WHEN line = 'YU' THEN min_delay
+    END) AS avg_delay_b FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    avg_delay_a: 2.5751737207833227
+    avg_delay_b: 3.1065906538826984
+  gold_columns:
+  - avg_delay_a
+  - avg_delay_b
+  gold_rows:
+  - - 2.5751737207833227
+    - 3.1065906538826984
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-line-compare-year-bd_shp_2024
+  dataset: ttc
+  question: Compare the average delay minutes on line BD versus line SHP in 2024.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN line = 'BD' THEN min_delay END) AS avg_delay_a, avg(CASE WHEN line = 'SHP' THEN min_delay
+    END) AS avg_delay_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    avg_delay_a: 2.655043699927167
+    avg_delay_b: 3.0078828828828827
+  gold_columns:
+  - avg_delay_a
+  - avg_delay_b
+  gold_rows:
+  - - 2.655043699927167
+    - 3.0078828828828827
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-line-compare-year-bd_yu_2024
+  dataset: ttc
+  question: Compare the average delay minutes on line BD versus line YU in 2024.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN line = 'BD' THEN min_delay END) AS avg_delay_a, avg(CASE WHEN line = 'YU' THEN min_delay
+    END) AS avg_delay_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    avg_delay_a: 2.655043699927167
+    avg_delay_b: 2.9963921901528012
+  gold_columns:
+  - avg_delay_a
+  - avg_delay_b
+  gold_rows:
+  - - 2.655043699927167
+    - 2.9963921901528012
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-line-compare-year-shp_yu_2024
+  dataset: ttc
+  question: Compare the average delay minutes on line SHP versus line YU in 2024.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN line = 'SHP' THEN min_delay END) AS avg_delay_a, avg(CASE WHEN line = 'YU' THEN min_delay
+    END) AS avg_delay_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    avg_delay_a: 3.0078828828828827
+    avg_delay_b: 2.9963921901528012
+  gold_columns:
+  - avg_delay_a
+  - avg_delay_b
+  gold_rows:
+  - - 3.0078828828828827
+    - 2.9963921901528012
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-subway-line-compare-year-shp_yu_2023
+  dataset: ttc
+  question: Compare the average delay minutes on line SHP versus line YU in 2023.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN line = 'SHP' THEN min_delay END) AS avg_delay_a, avg(CASE WHEN line = 'YU' THEN min_delay
+    END) AS avg_delay_b FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    avg_delay_a: 3.905608755129959
+    avg_delay_b: 3.1065906538826984
+  gold_columns:
+  - avg_delay_a
+  - avg_delay_b
+  gold_rows:
+  - - 3.905608755129959
+    - 3.1065906538826984
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - avg_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-weekday-weekend-compare-monday_tuesday_2024
+  dataset: ttc
+  question: Did subway delays happen more often on Monday or Tuesday in 2024?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN day_of_week = 'Monday' THEN 1 ELSE 0 END) AS count_a, sum(CASE WHEN day_of_week = 'Tuesday'
+    THEN 1 ELSE 0 END) AS count_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    count_a: 3918.0
+    count_b: 4186.0
+  gold_columns:
+  - count_a
+  - count_b
+  gold_rows:
+  - - 3918
+    - 4186
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-weekday-weekend-compare-friday_thursday_2024
+  dataset: ttc
+  question: Did subway delays happen more often on Friday or Thursday in 2024?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN day_of_week = 'Friday' THEN 1 ELSE 0 END) AS count_a, sum(CASE WHEN day_of_week = 'Thursday'
+    THEN 1 ELSE 0 END) AS count_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    count_a: 3921.0
+    count_b: 4012.0
+  gold_columns:
+  - count_a
+  - count_b
+  gold_rows:
+  - - 3921
+    - 4012
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-weekday-weekend-compare-saturday_tuesday_2024
+  dataset: ttc
+  question: Did subway delays happen more often on Saturday or Tuesday in 2024?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN day_of_week = 'Saturday' THEN 1 ELSE 0 END) AS count_a, sum(CASE WHEN day_of_week = 'Tuesday'
+    THEN 1 ELSE 0 END) AS count_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    count_a: 3503.0
+    count_b: 4186.0
+  gold_columns:
+  - count_a
+  - count_b
+  gold_rows:
+  - - 3503
+    - 4186
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-weekday-weekend-compare-monday_saturday_2023
+  dataset: ttc
+  question: Did subway delays happen more often on Monday or Saturday in 2023?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN day_of_week = 'Monday' THEN 1 ELSE 0 END) AS count_a, sum(CASE WHEN day_of_week = 'Saturday'
+    THEN 1 ELSE 0 END) AS count_b FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    count_a: 3289.0
+    count_b: 2967.0
+  gold_columns:
+  - count_a
+  - count_b
+  gold_rows:
+  - - 3289
+    - 2967
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-weekday-weekend-compare-friday_monday_2023
+  dataset: ttc
+  question: Did subway delays happen more often on Friday or Monday in 2023?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN day_of_week = 'Friday' THEN 1 ELSE 0 END) AS count_a, sum(CASE WHEN day_of_week = 'Monday'
+    THEN 1 ELSE 0 END) AS count_b FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    count_a: 3404.0
+    count_b: 3289.0
+  gold_columns:
+  - count_a
+  - count_b
+  gold_rows:
+  - - 3404
+    - 3289
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-weekday-weekend-compare-sunday_wednesday_2024
+  dataset: ttc
+  question: Did subway delays happen more often on Sunday or Wednesday in 2024?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN day_of_week = 'Sunday' THEN 1 ELSE 0 END) AS count_a, sum(CASE WHEN day_of_week = 'Wednesday'
+    THEN 1 ELSE 0 END) AS count_b FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    count_a: 2929.0
+    count_b: 3981.0
+  gold_columns:
+  - count_a
+  - count_b
+  gold_rows:
+  - - 2929
+    - 3981
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-mode-compare-year-2024
+  dataset: ttc
+  question: 'In 2024, which had more total delay minutes: buses or streetcars?'
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT 'bus' AS mode, sum(min_delay) AS total_delay_minutes FROM ttc_bus_delays WHERE year(delay_date) = 2024
+    UNION ALL SELECT 'streetcar', sum(min_delay) FROM ttc_streetcar_delays WHERE year(delay_date) = 2024 ORDER BY 2 DESC
+  gold_answer:
+    total_delay_minutes: 1262768.0
+  gold_columns:
+  - mode
+  - total_delay_minutes
+  gold_rows:
+  - - bus
+    - 1262768
+  - - streetcar
+    - 227080
+  expected_tables:
+  - ttc_bus_delays
+  - ttc_streetcar_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-mode-compare-year-2023
+  dataset: ttc
+  question: 'In 2023, which had more total delay minutes: buses or streetcars?'
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT 'bus' AS mode, sum(min_delay) AS total_delay_minutes FROM ttc_bus_delays WHERE year(delay_date) = 2023
+    UNION ALL SELECT 'streetcar', sum(min_delay) FROM ttc_streetcar_delays WHERE year(delay_date) = 2023 ORDER BY 2 DESC
+  gold_answer:
+    total_delay_minutes: 1135406.0
+  gold_columns:
+  - mode
+  - total_delay_minutes
+  gold_rows:
+  - - bus
+    - 1135406
+  - - streetcar
+    - 224037
+  expected_tables:
+  - ttc_bus_delays
+  - ttc_streetcar_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-yoy-subway-minutes-2023_2024
+  dataset: ttc
+  question: How did total subway delay minutes change from 2023 to 2024?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN year(delay_date) = 2023 THEN min_delay END) AS minutes_a, sum(CASE WHEN year(delay_date)
+    = 2024 THEN min_delay END) AS minutes_b, sum(CASE WHEN year(delay_date) = 2024 THEN min_delay END) - sum(CASE WHEN year(delay_date)
+    = 2023 THEN min_delay END) AS change_minutes FROM ttc_subway_delays
+  gold_answer:
+    minutes_a: 68146.0
+    minutes_b: 74266.0
+    change_minutes: 6120.0
+  gold_columns:
+  - minutes_a
+  - minutes_b
+  - change_minutes
+  gold_rows:
+  - - 68146
+    - 74266
+    - 6120
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-hourly-peak-shp
+  dataset: ttc
+  question: At which hour of the day do subway delays peak on line SHP, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT delay_hour, count(*) AS delay_count FROM ttc_subway_delays WHERE line = 'SHP' AND delay_hour IS NOT NULL
+    GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    delay_hour: 17.0
+    delay_count: 101.0
+  gold_columns:
+  - delay_hour
+  - delay_count
+  gold_rows:
+  - - 17
+    - 101
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-hourly-peak-bd
+  dataset: ttc
+  question: At which hour of the day do subway delays peak on line BD, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT delay_hour, count(*) AS delay_count FROM ttc_subway_delays WHERE line = 'BD' AND delay_hour IS NOT NULL
+    GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    delay_hour: 16.0
+    delay_count: 1163.0
+  gold_columns:
+  - delay_hour
+  - delay_count
+  gold_rows:
+  - - 16
+    - 1163
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-hourly-peak-yu
+  dataset: ttc
+  question: At which hour of the day do subway delays peak on line YU, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT delay_hour, count(*) AS delay_count FROM ttc_subway_delays WHERE line = 'YU' AND delay_hour IS NOT NULL
+    GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    delay_hour: 17.0
+    delay_count: 1661.0
+  gold_columns:
+  - delay_hour
+  - delay_count
+  gold_rows:
+  - - 17
+    - 1661
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-code-change-2023_2024
+  dataset: ttc
+  question: Which subway delay code contributed most to the change in total delay minutes from 2023 to 2024, and by how many
+    minutes?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_code AS (SELECT d.code, c.description, sum(CASE WHEN year(delay_date) = 2023 THEN min_delay ELSE 0 END)
+    AS minutes_a, sum(CASE WHEN year(delay_date) = 2024 THEN min_delay ELSE 0 END) AS minutes_b FROM ttc_subway_delays d LEFT
+    JOIN ttc_subway_delay_codes c ON d.code = c.code WHERE year(delay_date) IN (2023, 2024) GROUP BY 1, 2) SELECT code, description,
+    minutes_b - minutes_a AS delta_minutes FROM by_code ORDER BY abs(minutes_b - minutes_a) DESC LIMIT 1
+  gold_answer:
+    delta_minutes: 1622.0
+  gold_columns:
+  - code
+  - description
+  - delta_minutes
+  gold_rows:
+  - - PUOPO
+    - Opto (Communications) Train Door Monitoring
+    - 1622
+  expected_tables:
+  - ttc_subway_delays
+  - ttc_subway_delay_codes
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-station-share-line-yu_2024
+  dataset: ttc
+  question: Which station accounts for the largest share of delay minutes on line YU in 2024, and what is that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(min_delay) AS t FROM ttc_subway_delays WHERE line = 'YU' AND year(delay_date) = 2024)
+    SELECT station, sum(min_delay) AS station_minutes, sum(min_delay) / tot.t AS share FROM ttc_subway_delays, tot WHERE line
+    = 'YU' AND year(delay_date) = 2024 GROUP BY station, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    station_minutes: 2209.0
+    share: 0.05215194654956678
+  gold_columns:
+  - station
+  - station_minutes
+  - share
+  gold_rows:
+  - - BLOOR STATION
+    - 2209
+    - 0.05215194654956678
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-station-share-line-shp_2024
+  dataset: ttc
+  question: Which station accounts for the largest share of delay minutes on line SHP in 2024, and what is that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(min_delay) AS t FROM ttc_subway_delays WHERE line = 'SHP' AND year(delay_date) = 2024)
+    SELECT station, sum(min_delay) AS station_minutes, sum(min_delay) / tot.t AS share FROM ttc_subway_delays, tot WHERE line
+    = 'SHP' AND year(delay_date) = 2024 GROUP BY station, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    station_minutes: 909.0
+    share: 0.34032197678771997
+  gold_columns:
+  - station
+  - station_minutes
+  - share
+  gold_rows:
+  - - DON MILLS STATION
+    - 909
+    - 0.34032197678771997
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-station-share-line-yu_2023
+  dataset: ttc
+  question: Which station accounts for the largest share of delay minutes on line YU in 2023, and what is that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(min_delay) AS t FROM ttc_subway_delays WHERE line = 'YU' AND year(delay_date) = 2023)
+    SELECT station, sum(min_delay) AS station_minutes, sum(min_delay) / tot.t AS share FROM ttc_subway_delays, tot WHERE line
+    = 'YU' AND year(delay_date) = 2023 GROUP BY station, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    station_minutes: 1867.0
+    share: 0.0519115807034617
+  gold_columns:
+  - station
+  - station_minutes
+  - share
+  gold_rows:
+  - - EGLINTON STATION
+    - 1867
+    - 0.0519115807034617
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-station-share-line-bd_2024
+  dataset: ttc
+  question: Which station accounts for the largest share of delay minutes on line BD in 2024, and what is that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(min_delay) AS t FROM ttc_subway_delays WHERE line = 'BD' AND year(delay_date) = 2024)
+    SELECT station, sum(min_delay) AS station_minutes, sum(min_delay) / tot.t AS share FROM ttc_subway_delays, tot WHERE line
+    = 'BD' AND year(delay_date) = 2024 GROUP BY station, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    station_minutes: 2222.0
+    share: 0.076192435620478
+  gold_columns:
+  - station
+  - station_minutes
+  - share
+  gold_rows:
+  - - KIPLING STATION
+    - 2222
+    - 0.076192435620478
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-station-share-line-bd_2023
+  dataset: ttc
+  question: Which station accounts for the largest share of delay minutes on line BD in 2023, and what is that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(min_delay) AS t FROM ttc_subway_delays WHERE line = 'BD' AND year(delay_date) = 2023)
+    SELECT station, sum(min_delay) AS station_minutes, sum(min_delay) / tot.t AS share FROM ttc_subway_delays, tot WHERE line
+    = 'BD' AND year(delay_date) = 2023 GROUP BY station, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    station_minutes: 1945.0
+    share: 0.07952083077803672
+  gold_columns:
+  - station
+  - station_minutes
+  - share
+  gold_rows:
+  - - KENNEDY BD STATION
+    - 1945
+    - 0.07952083077803672
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-station-share-line-shp_2023
+  dataset: ttc
+  question: Which station accounts for the largest share of delay minutes on line SHP in 2023, and what is that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(min_delay) AS t FROM ttc_subway_delays WHERE line = 'SHP' AND year(delay_date) = 2023)
+    SELECT station, sum(min_delay) AS station_minutes, sum(min_delay) / tot.t AS share FROM ttc_subway_delays, tot WHERE line
+    = 'SHP' AND year(delay_date) = 2023 GROUP BY station, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    station_minutes: 948.0
+    share: 0.3320490367775832
+  gold_columns:
+  - station
+  - station_minutes
+  - share
+  gold_rows:
+  - - SHEPPARD-YONGE STATION
+    - 948
+    - 0.3320490367775832
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-bus-incident-mix-2023_2024
+  dataset: ttc
+  question: 'Break down the change in bus delay minutes from 2023 to 2024 by incident type: which incident type drove the
+    biggest change?'
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_inc AS (SELECT incident, sum(CASE WHEN year(delay_date) = 2023 THEN min_delay ELSE 0 END) AS minutes_a,
+    sum(CASE WHEN year(delay_date) = 2024 THEN min_delay ELSE 0 END) AS minutes_b FROM ttc_bus_delays WHERE year(delay_date)
+    IN (2023, 2024) GROUP BY 1) SELECT incident, minutes_b - minutes_a AS delta_minutes FROM by_inc ORDER BY abs(minutes_b
+    - minutes_a) DESC LIMIT 1
+  gold_answer:
+    delta_minutes: 125955.0
+  gold_columns:
+  - incident
+  - delta_minutes
+  gold_rows:
+  - - Diversion
+    - 125955
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-long-delay-share-2024
+  dataset: ttc
+  question: Of all subway delay minutes in 2024, what share came from incidents of 20 minutes or more, and how many such incidents
+    were there?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT sum(CASE WHEN min_delay >= 20 THEN min_delay ELSE 0 END) / sum(min_delay) AS long_delay_share, sum(CASE
+    WHEN min_delay >= 20 THEN 1 ELSE 0 END) AS long_delay_count FROM ttc_subway_delays WHERE year(delay_date) = 2024
+  gold_answer:
+    long_delay_share: 0.2900385102200199
+    long_delay_count: 521.0
+  gold_columns:
+  - long_delay_share
+  - long_delay_count
+  gold_rows:
+  - - 0.2900385102200199
+    - 521
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-long-delay-share-2023
+  dataset: ttc
+  question: Of all subway delay minutes in 2023, what share came from incidents of 20 minutes or more, and how many such incidents
+    were there?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT sum(CASE WHEN min_delay >= 20 THEN min_delay ELSE 0 END) / sum(min_delay) AS long_delay_share, sum(CASE
+    WHEN min_delay >= 20 THEN 1 ELSE 0 END) AS long_delay_count FROM ttc_subway_delays WHERE year(delay_date) = 2023
+  gold_answer:
+    long_delay_share: 0.3149561236169401
+    long_delay_count: 527.0
+  gold_columns:
+  - long_delay_share
+  - long_delay_count
+  gold_rows:
+  - - 0.3149561236169401
+    - 527
+  expected_tables:
+  - ttc_subway_delays
+  expected_metrics:
+  - total_delay_minutes
+  - delay_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-route-concentration-2023
+  dataset: ttc
+  question: In 2023, how many bus routes account for half of all bus delay minutes?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH r AS (SELECT route, sum(min_delay) AS m FROM ttc_bus_delays WHERE year(delay_date) = 2023 GROUP BY 1), c
+    AS (SELECT route, m, sum(m) OVER (ORDER BY m DESC, route) AS cum, sum(m) OVER () AS total FROM r) SELECT count(*) AS routes_for_half
+    FROM c WHERE cum - m < total / 2
+  gold_answer:
+    routes_for_half: 39.0
+  gold_columns:
+  - routes_for_half
+  gold_rows:
+  - - 39
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: ttc-driver-route-concentration-2024
+  dataset: ttc
+  question: In 2024, how many bus routes account for half of all bus delay minutes?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH r AS (SELECT route, sum(min_delay) AS m FROM ttc_bus_delays WHERE year(delay_date) = 2024 GROUP BY 1), c
+    AS (SELECT route, m, sum(m) OVER (ORDER BY m DESC, route) AS cum, sum(m) OVER () AS total FROM r) SELECT count(*) AS routes_for_half
+    FROM c WHERE cum - m < total / 2
+  gold_answer:
+    routes_for_half: 40.0
+  gold_columns:
+  - routes_for_half
+  gold_rows:
+  - - 40
+  expected_tables:
+  - ttc_bus_delays
+  expected_metrics:
+  - total_delay_minutes
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claim-count-state-year-la_2023
+  dataset: nfip
+  question: How many NFIP claims were filed in LA for losses in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE state = 'LA' AND year_of_loss = 2023
+  gold_answer:
+    claim_count: 69.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 69
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claim-count-state-year-ny_2016
+  dataset: nfip
+  question: How many NFIP claims were filed in NY for losses in 2016?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE state = 'NY' AND year_of_loss = 2016
+  gold_answer:
+    claim_count: 69.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 69
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claim-count-state-year-ny_2022
+  dataset: nfip
+  question: How many NFIP claims were filed in NY for losses in 2022?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE state = 'NY' AND year_of_loss = 2022
+  gold_answer:
+    claim_count: 367.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 367
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claim-count-state-year-sc_2017
+  dataset: nfip
+  question: How many NFIP claims were filed in SC for losses in 2017?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE state = 'SC' AND year_of_loss = 2017
+  gold_answer:
+    claim_count: 785.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 785
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claim-count-state-year-la_2024
+  dataset: nfip
+  question: How many NFIP claims were filed in LA for losses in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE state = 'LA' AND year_of_loss = 2024
+  gold_answer:
+    claim_count: 826.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 826
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-total-paid-state-ny
+  dataset: nfip
+  question: What is the total amount paid on NFIP claims in NY?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'NY'
+  gold_answer:
+    total_paid: 99702455.32999982
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 99702455.32999982
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-total-paid-state-tx
+  dataset: nfip
+  question: What is the total amount paid on NFIP claims in TX?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'TX'
+  gold_answer:
+    total_paid: 3538146258.019991
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 3538146258.019991
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-total-paid-state-nj
+  dataset: nfip
+  question: What is the total amount paid on NFIP claims in NJ?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'NJ'
+  gold_answer:
+    total_paid: 144807645.25999984
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 144807645.25999984
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-total-paid-state-la
+  dataset: nfip
+  question: What is the total amount paid on NFIP claims in LA?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'LA'
+  gold_answer:
+    total_paid: 1269762064.6599982
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 1269762064.6599982
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-avg-severity-year-2018
+  dataset: nfip
+  question: What was the average claim payment (severity) for losses in 2018?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(total_paid) AS avg_claim_severity FROM nfip_claims WHERE year_of_loss = 2018 AND total_paid > 0
+  gold_answer:
+    avg_claim_severity: 50745.14487534622
+  gold_columns:
+  - avg_claim_severity
+  gold_rows:
+  - - 50745.14487534622
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-avg-severity-year-2015
+  dataset: nfip
+  question: What was the average claim payment (severity) for losses in 2015?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(total_paid) AS avg_claim_severity FROM nfip_claims WHERE year_of_loss = 2015 AND total_paid > 0
+  gold_answer:
+    avg_claim_severity: 47038.0406474243
+  gold_columns:
+  - avg_claim_severity
+  gold_rows:
+  - - 47038.0406474243
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-avg-severity-year-2022
+  dataset: nfip
+  question: What was the average claim payment (severity) for losses in 2022?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(total_paid) AS avg_claim_severity FROM nfip_claims WHERE year_of_loss = 2022 AND total_paid > 0
+  gold_answer:
+    avg_claim_severity: 117484.9441890513
+  gold_columns:
+  - avg_claim_severity
+  gold_rows:
+  - - 117484.9441890513
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-avg-severity-year-2017
+  dataset: nfip
+  question: What was the average claim payment (severity) for losses in 2017?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT avg(total_paid) AS avg_claim_severity FROM nfip_claims WHERE year_of_loss = 2017 AND total_paid > 0
+  gold_answer:
+    avg_claim_severity: 100516.58482191942
+  gold_columns:
+  - avg_claim_severity
+  gold_rows:
+  - - 100516.58482191942
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-max-building-paid-state-ny
+  dataset: nfip
+  question: What was the largest single building claim payment in NY?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT max(amount_paid_on_building_claim) AS max_building_paid FROM nfip_claims WHERE state = 'NY'
+  gold_answer:
+    max_building_paid: 583629.48
+  gold_columns:
+  - max_building_paid
+  gold_rows:
+  - - 583629.48
+  expected_tables:
+  - nfip_claims
+  expected_metrics: []
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-max-building-paid-state-fl
+  dataset: nfip
+  question: What was the largest single building claim payment in FL?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT max(amount_paid_on_building_claim) AS max_building_paid FROM nfip_claims WHERE state = 'FL'
+  gold_answer:
+    max_building_paid: 8758773.33
+  gold_columns:
+  - max_building_paid
+  gold_rows:
+  - - 8758773.33
+  expected_tables:
+  - nfip_claims
+  expected_metrics: []
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-max-building-paid-state-nj
+  dataset: nfip
+  question: What was the largest single building claim payment in NJ?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT max(amount_paid_on_building_claim) AS max_building_paid FROM nfip_claims WHERE state = 'NJ'
+  gold_answer:
+    max_building_paid: 500000.0
+  gold_columns:
+  - max_building_paid
+  gold_rows:
+  - - 500000.0
+  expected_tables:
+  - nfip_claims
+  expected_metrics: []
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claims-by-zone-count-a
+  dataset: nfip
+  question: How many claims were in rated flood zone A?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE rated_flood_zone = 'A'
+  gold_answer:
+    claim_count: 4577.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 4577
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claims-by-zone-count-ve
+  dataset: nfip
+  question: How many claims were in rated flood zone VE?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE rated_flood_zone = 'VE'
+  gold_answer:
+    claim_count: 4259.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 4259
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claims-by-zone-count-ae
+  dataset: nfip
+  question: How many claims were in rated flood zone AE?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE rated_flood_zone = 'AE'
+  gold_answer:
+    claim_count: 90297.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 90297
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-claims-by-zone-count-b
+  dataset: nfip
+  question: How many claims were in rated flood zone B?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT count(*) AS claim_count FROM nfip_claims WHERE rated_flood_zone = 'B'
+  gold_answer:
+    claim_count: 2518.0
+  gold_columns:
+  - claim_count
+  gold_rows:
+  - - 2518
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-event-total-paid-hurricane-helene
+  dataset: nfip
+  question: How much was paid in total for claims tied to the flood event 'Hurricane Helene'?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE flood_event = 'Hurricane Helene'
+  gold_answer:
+    total_paid: 1945715834.1499934
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 1945715834.1499934
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-event-total-paid-hurricane-ian
+  dataset: nfip
+  question: How much was paid in total for claims tied to the flood event 'Hurricane Ian'?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE flood_event = 'Hurricane Ian'
+  gold_answer:
+    total_paid: 1457575331.78
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 1457575331.78
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-event-total-paid-mid-summer-severe-storms
+  dataset: nfip
+  question: How much was paid in total for claims tied to the flood event 'Mid-summer severe storms'?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE flood_event = 'Mid-summer severe storms'
+  gold_answer:
+    total_paid: 750961240.0400002
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 750961240.0400002
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-event-total-paid-hurricane-harvey
+  dataset: nfip
+  question: How much was paid in total for claims tied to the flood event 'Hurricane Harvey'?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT sum(total_paid) AS total_paid FROM nfip_claims WHERE flood_event = 'Hurricane Harvey'
+  gold_answer:
+    total_paid: 2716728914.429998
+  gold_columns:
+  - total_paid
+  gold_rows:
+  - - 2716728914.429998
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-name-claims-2022
+  dataset: nfip
+  question: Which state (by full name) had the most claims in 2022?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT s.state_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_states s ON c.state = s.state WHERE
+    c.year_of_loss = 2022 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 14987.0
+  gold_columns:
+  - state_name
+  - claim_count
+  gold_rows:
+  - - Florida
+    - 14987
+  expected_tables:
+  - nfip_claims
+  - nfip_states
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-name-claims-2023
+  dataset: nfip
+  question: Which state (by full name) had the most claims in 2023?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT s.state_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_states s ON c.state = s.state WHERE
+    c.year_of_loss = 2023 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 2991.0
+  gold_columns:
+  - state_name
+  - claim_count
+  gold_rows:
+  - - Florida
+    - 2991
+  expected_tables:
+  - nfip_claims
+  - nfip_states
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-name-claims-2021
+  dataset: nfip
+  question: Which state (by full name) had the most claims in 2021?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT s.state_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_states s ON c.state = s.state WHERE
+    c.year_of_loss = 2021 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 5665.0
+  gold_columns:
+  - state_name
+  - claim_count
+  gold_rows:
+  - - Louisiana
+    - 5665
+  expected_tables:
+  - nfip_claims
+  - nfip_states
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-name-claims-2024
+  dataset: nfip
+  question: Which state (by full name) had the most claims in 2024?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT s.state_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_states s ON c.state = s.state WHERE
+    c.year_of_loss = 2024 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 23812.0
+  gold_columns:
+  - state_name
+  - claim_count
+  gold_rows:
+  - - Florida
+    - 23812
+  expected_tables:
+  - nfip_claims
+  - nfip_states
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-median-water-depth-state-fl
+  dataset: nfip
+  question: What is the median reported water depth for claims in FL?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT median(water_depth) AS median_water_depth FROM nfip_claims WHERE state = 'FL' AND water_depth IS NOT NULL
+  gold_answer:
+    median_water_depth: 1.0
+  gold_columns:
+  - median_water_depth
+  gold_rows:
+  - - 1.0
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - median_water_depth
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-median-water-depth-state-nj
+  dataset: nfip
+  question: What is the median reported water depth for claims in NJ?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT median(water_depth) AS median_water_depth FROM nfip_claims WHERE state = 'NJ' AND water_depth IS NOT NULL
+  gold_answer:
+    median_water_depth: 1.0
+  gold_columns:
+  - median_water_depth
+  gold_rows:
+  - - 1.0
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - median_water_depth
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-median-water-depth-state-la
+  dataset: nfip
+  question: What is the median reported water depth for claims in LA?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT median(water_depth) AS median_water_depth FROM nfip_claims WHERE state = 'LA' AND water_depth IS NOT NULL
+  gold_answer:
+    median_water_depth: 1.0
+  gold_columns:
+  - median_water_depth
+  gold_rows:
+  - - 1.0
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - median_water_depth
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-paid-trend-state-sc
+  dataset: nfip
+  question: How has the total paid on claims in SC trended by year of loss?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'SC' AND year_of_loss >= 2015
+    GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    total_paid: 46430650.669999994
+  gold_columns:
+  - year_of_loss
+  - total_paid
+  gold_rows:
+  - - 2015
+    - 46430650.669999994
+  - - 2016
+    - 48656727.01000003
+  - - 2017
+    - 15874956.849999987
+  - - 2018
+    - 34568700.22999999
+  - - 2019
+    - 578200.8
+  - - 2020
+    - 4575516.739999999
+  - - 2021
+    - 2101205.099999999
+  - - 2022
+    - 13767725.250000006
+  - - 2023
+    - 4086096.919999999
+  - - 2024
+    - 6720036.659999998
+  - - 2025
+    - 152240.15000000002
+  - - 2026
+    - 4395.96
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-paid-trend-state-nj
+  dataset: nfip
+  question: How has the total paid on claims in NJ trended by year of loss?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'NJ' AND year_of_loss >= 2015
+    GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    total_paid: 410892.55999999994
+  gold_columns:
+  - year_of_loss
+  - total_paid
+  gold_rows:
+  - - 2015
+    - 410892.55999999994
+  - - 2016
+    - 9079471.279999994
+  - - 2017
+    - 514405.31999999995
+  - - 2018
+    - 4540720.840000001
+  - - 2019
+    - 2593826.51
+  - - 2020
+    - 734902.4800000001
+  - - 2021
+    - 107002950.65999992
+  - - 2022
+    - 1309040.7500000002
+  - - 2023
+    - 5609303.010000002
+  - - 2024
+    - 4630405.069999998
+  - - 2025
+    - 8371410.399999999
+  - - 2026
+    - 10316.38
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-paid-trend-state-tx
+  dataset: nfip
+  question: How has the total paid on claims in TX trended by year of loss?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'TX' AND year_of_loss >= 2015
+    GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    total_paid: 172301346.42000002
+  gold_columns:
+  - year_of_loss
+  - total_paid
+  gold_rows:
+  - - 2015
+    - 172301346.42000002
+  - - 2016
+    - 209953353.8299999
+  - - 2017
+    - 2724048766.6600003
+  - - 2018
+    - 36399734.30000003
+  - - 2019
+    - 262633499.00000033
+  - - 2020
+    - 12351421.459999999
+  - - 2021
+    - 13855322.600000009
+  - - 2022
+    - 7206684.6000000015
+  - - 2023
+    - 4311112.999999998
+  - - 2024
+    - 46643908.84000005
+  - - 2025
+    - 47640604.96000002
+  - - 2026
+    - 800502.35
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-paid-trend-state-fl
+  dataset: nfip
+  question: How has the total paid on claims in FL trended by year of loss?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'FL' AND year_of_loss >= 2015
+    GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    total_paid: 8152902.210000001
+  gold_columns:
+  - year_of_loss
+  - total_paid
+  gold_rows:
+  - - 2015
+    - 8152902.210000001
+  - - 2016
+    - 83430955.56999996
+  - - 2017
+    - 302591721.29999995
+  - - 2018
+    - 70016866.13000003
+  - - 2019
+    - 6393252.670000004
+  - - 2020
+    - 97009096.53000014
+  - - 2021
+    - 5675600.780000001
+  - - 2022
+    - 1466464361.8899987
+  - - 2023
+    - 198132214.12000012
+  - - 2024
+    - 2299600554.009995
+  - - 2025
+    - 6610638.5
+  - - 2026
+    - 39458.12
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-paid-trend-state-la
+  dataset: nfip
+  question: How has the total paid on claims in LA trended by year of loss?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'LA' AND year_of_loss >= 2015
+    GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    total_paid: 4088715.0500000007
+  gold_columns:
+  - year_of_loss
+  - total_paid
+  gold_rows:
+  - - 2015
+    - 4088715.0500000007
+  - - 2016
+    - 830938264.1999993
+  - - 2017
+    - 23667511.55999999
+  - - 2018
+    - 4312819.449999999
+  - - 2019
+    - 29622669.27000001
+  - - 2020
+    - 51314079.49000004
+  - - 2021
+    - 281097911.2099999
+  - - 2022
+    - 1128860.2599999995
+  - - 2023
+    - 1399146.16
+  - - 2024
+    - 31696834.039999995
+  - - 2025
+    - 9762047.630000005
+  - - 2026
+    - 733206.34
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-paid-trend-state-ny
+  dataset: nfip
+  question: How has the total paid on claims in NY trended by year of loss?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, sum(total_paid) AS total_paid FROM nfip_claims WHERE state = 'NY' AND year_of_loss >= 2015
+    GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    total_paid: 777035.5800000001
+  gold_columns:
+  - year_of_loss
+  - total_paid
+  gold_rows:
+  - - 2015
+    - 777035.5800000001
+  - - 2016
+    - 540413.7
+  - - 2017
+    - 3225484.000000001
+  - - 2018
+    - 3686614.0699999994
+  - - 2019
+    - 2971370.5500000003
+  - - 2020
+    - 1018098.1000000001
+  - - 2021
+    - 48823323.160000004
+  - - 2022
+    - 8649328.210000003
+  - - 2023
+    - 18260736.83999998
+  - - 2024
+    - 9203087.309999999
+  - - 2025
+    - 1884593.81
+  - - 2026
+    - 662370.0
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yearly-claim-count-trend-
+  dataset: nfip
+  question: How did the number of claims per year of loss change from 2015 onward?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT year_of_loss, count(*) AS claim_count FROM nfip_claims WHERE year_of_loss >= 2015 GROUP BY 1 ORDER BY 1
+  gold_answer:
+    year_of_loss: 2015.0
+    claim_count: 6601.0
+  gold_columns:
+  - year_of_loss
+  - claim_count
+  gold_rows:
+  - - 2015
+    - 6601
+  - - 2016
+    - 22184
+  - - 2017
+    - 39358
+  - - 2018
+    - 8684
+  - - 2019
+    - 6301
+  - - 2020
+    - 6063
+  - - 2021
+    - 10419
+  - - 2022
+    - 16232
+  - - 2023
+    - 4498
+  - - 2024
+    - 27765
+  - - 2025
+    - 1736
+  - - 2026
+    - 159
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-monthly-claims-year-2021
+  dataset: nfip
+  question: Which month of 2021 had the most claims by date of loss, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(date_of_loss, '%Y-%m') AS month, count(*) AS claim_count FROM nfip_claims WHERE year_of_loss =
+    2021 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 4607.0
+  gold_columns:
+  - month
+  - claim_count
+  gold_rows:
+  - - 2021-08
+    - 4607
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-monthly-claims-year-2024
+  dataset: nfip
+  question: Which month of 2024 had the most claims by date of loss, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(date_of_loss, '%Y-%m') AS month, count(*) AS claim_count FROM nfip_claims WHERE year_of_loss =
+    2024 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 17819.0
+  gold_columns:
+  - month
+  - claim_count
+  gold_rows:
+  - - 2024-09
+    - 17819
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-monthly-claims-year-2019
+  dataset: nfip
+  question: Which month of 2019 had the most claims by date of loss, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(date_of_loss, '%Y-%m') AS month, count(*) AS claim_count FROM nfip_claims WHERE year_of_loss =
+    2019 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 3737.0
+  gold_columns:
+  - month
+  - claim_count
+  gold_rows:
+  - - 2019-09
+    - 3737
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-monthly-claims-year-2023
+  dataset: nfip
+  question: Which month of 2023 had the most claims by date of loss, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(date_of_loss, '%Y-%m') AS month, count(*) AS claim_count FROM nfip_claims WHERE year_of_loss =
+    2023 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 1613.0
+  gold_columns:
+  - month
+  - claim_count
+  gold_rows:
+  - - 2023-08
+    - 1613
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-monthly-claims-year-2017
+  dataset: nfip
+  question: Which month of 2017 had the most claims by date of loss, and how many?
+  difficulty: medium
+  analysis_type: trend
+  gold_sql: SELECT strftime(date_of_loss, '%Y-%m') AS month, count(*) AS claim_count FROM nfip_claims WHERE year_of_loss =
+    2017 GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 27755.0
+  gold_columns:
+  - month
+  - claim_count
+  gold_rows:
+  - - 2017-08
+    - 27755
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-compare-severity-ny_sc_2022
+  dataset: nfip
+  question: Compare average claim severity in NY versus SC for losses in 2022.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN state = 'NY' THEN total_paid END) AS severity_a, avg(CASE WHEN state = 'SC' THEN total_paid
+    END) AS severity_b FROM nfip_claims WHERE year_of_loss = 2022 AND total_paid > 0
+  gold_answer:
+    severity_a: 28831.094033333342
+    severity_b: 47474.91465517243
+  gold_columns:
+  - severity_a
+  - severity_b
+  gold_rows:
+  - - 28831.094033333342
+    - 47474.91465517243
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-compare-severity-ny_tx_2018
+  dataset: nfip
+  question: Compare average claim severity in NY versus TX for losses in 2018.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN state = 'NY' THEN total_paid END) AS severity_a, avg(CASE WHEN state = 'TX' THEN total_paid
+    END) AS severity_b FROM nfip_claims WHERE year_of_loss = 2018 AND total_paid > 0
+  gold_answer:
+    severity_a: 21685.965117647054
+    severity_b: 52298.46882183912
+  gold_columns:
+  - severity_a
+  - severity_b
+  gold_rows:
+  - - 21685.965117647054
+    - 52298.46882183912
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-compare-severity-la_ny_2017
+  dataset: nfip
+  question: Compare average claim severity in LA versus NY for losses in 2017.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN state = 'LA' THEN total_paid END) AS severity_a, avg(CASE WHEN state = 'NY' THEN total_paid
+    END) AS severity_b FROM nfip_claims WHERE year_of_loss = 2017 AND total_paid > 0
+  gold_answer:
+    severity_a: 34300.741391304335
+    severity_b: 18752.813953488378
+  gold_columns:
+  - severity_a
+  - severity_b
+  gold_rows:
+  - - 34300.741391304335
+    - 18752.813953488378
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-compare-severity-fl_sc_2019
+  dataset: nfip
+  question: Compare average claim severity in FL versus SC for losses in 2019.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN state = 'FL' THEN total_paid END) AS severity_a, avg(CASE WHEN state = 'SC' THEN total_paid
+    END) AS severity_b FROM nfip_claims WHERE year_of_loss = 2019 AND total_paid > 0
+  gold_answer:
+    severity_a: 37829.89745562132
+    severity_b: 13446.530232558142
+  gold_columns:
+  - severity_a
+  - severity_b
+  gold_rows:
+  - - 37829.89745562132
+    - 13446.530232558142
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-compare-severity-fl_tx_2019
+  dataset: nfip
+  question: Compare average claim severity in FL versus TX for losses in 2019.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN state = 'FL' THEN total_paid END) AS severity_a, avg(CASE WHEN state = 'TX' THEN total_paid
+    END) AS severity_b FROM nfip_claims WHERE year_of_loss = 2019 AND total_paid > 0
+  gold_answer:
+    severity_a: 37829.89745562132
+    severity_b: 70311.80791220567
+  gold_columns:
+  - severity_a
+  - severity_b
+  gold_rows:
+  - - 37829.89745562132
+    - 70311.80791220567
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-state-compare-severity-la_tx_2018
+  dataset: nfip
+  question: Compare average claim severity in LA versus TX for losses in 2018.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN state = 'LA' THEN total_paid END) AS severity_a, avg(CASE WHEN state = 'TX' THEN total_paid
+    END) AS severity_b FROM nfip_claims WHERE year_of_loss = 2018 AND total_paid > 0
+  gold_answer:
+    severity_a: 30805.853214285708
+    severity_b: 52298.46882183912
+  gold_columns:
+  - severity_a
+  - severity_b
+  gold_rows:
+  - - 30805.853214285708
+    - 52298.46882183912
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-sfha-vs-non-sfha-ny
+  dataset: nfip
+  question: In NY, compare average claim payment for properties in Special Flood Hazard Areas (zones starting with A or V)
+    versus outside them.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%' THEN total_paid END) AS sfha_avg_paid,
+    avg(CASE WHEN NOT (rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%') THEN total_paid END) AS non_sfha_avg_paid
+    FROM nfip_claims WHERE state = 'NY' AND rated_flood_zone IS NOT NULL AND total_paid > 0
+  gold_answer:
+    sfha_avg_paid: 40487.041436265754
+    non_sfha_avg_paid: 30435.526201329525
+  gold_columns:
+  - sfha_avg_paid
+  - non_sfha_avg_paid
+  gold_rows:
+  - - 40487.041436265754
+    - 30435.526201329525
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  - sfha_claim_share
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-sfha-vs-non-sfha-la
+  dataset: nfip
+  question: In LA, compare average claim payment for properties in Special Flood Hazard Areas (zones starting with A or V)
+    versus outside them.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%' THEN total_paid END) AS sfha_avg_paid,
+    avg(CASE WHEN NOT (rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%') THEN total_paid END) AS non_sfha_avg_paid
+    FROM nfip_claims WHERE state = 'LA' AND rated_flood_zone IS NOT NULL AND total_paid > 0
+  gold_answer:
+    sfha_avg_paid: 76098.6459676912
+    non_sfha_avg_paid: 64211.179584880934
+  gold_columns:
+  - sfha_avg_paid
+  - non_sfha_avg_paid
+  gold_rows:
+  - - 76098.6459676912
+    - 64211.179584880934
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  - sfha_claim_share
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-sfha-vs-non-sfha-nj
+  dataset: nfip
+  question: In NJ, compare average claim payment for properties in Special Flood Hazard Areas (zones starting with A or V)
+    versus outside them.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%' THEN total_paid END) AS sfha_avg_paid,
+    avg(CASE WHEN NOT (rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%') THEN total_paid END) AS non_sfha_avg_paid
+    FROM nfip_claims WHERE state = 'NJ' AND rated_flood_zone IS NOT NULL AND total_paid > 0
+  gold_answer:
+    sfha_avg_paid: 42935.06786681713
+    non_sfha_avg_paid: 43020.94472650769
+  gold_columns:
+  - sfha_avg_paid
+  - non_sfha_avg_paid
+  gold_rows:
+  - - 42935.06786681713
+    - 43020.94472650769
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  - sfha_claim_share
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-sfha-vs-non-sfha-nc
+  dataset: nfip
+  question: In NC, compare average claim payment for properties in Special Flood Hazard Areas (zones starting with A or V)
+    versus outside them.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%' THEN total_paid END) AS sfha_avg_paid,
+    avg(CASE WHEN NOT (rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%') THEN total_paid END) AS non_sfha_avg_paid
+    FROM nfip_claims WHERE state = 'NC' AND rated_flood_zone IS NOT NULL AND total_paid > 0
+  gold_answer:
+    sfha_avg_paid: 47635.39564848306
+    non_sfha_avg_paid: 45238.036007773466
+  gold_columns:
+  - sfha_avg_paid
+  - non_sfha_avg_paid
+  gold_rows:
+  - - 47635.39564848306
+    - 45238.036007773466
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  - sfha_claim_share
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-sfha-vs-non-sfha-fl
+  dataset: nfip
+  question: In FL, compare average claim payment for properties in Special Flood Hazard Areas (zones starting with A or V)
+    versus outside them.
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%' THEN total_paid END) AS sfha_avg_paid,
+    avg(CASE WHEN NOT (rated_flood_zone LIKE 'A%' OR rated_flood_zone LIKE 'V%') THEN total_paid END) AS non_sfha_avg_paid
+    FROM nfip_claims WHERE state = 'FL' AND rated_flood_zone IS NOT NULL AND total_paid > 0
+  gold_answer:
+    sfha_avg_paid: 100673.54128135444
+    non_sfha_avg_paid: 63490.74702972909
+  gold_columns:
+  - sfha_avg_paid
+  - non_sfha_avg_paid
+  gold_rows:
+  - - 100673.54128135444
+    - 63490.74702972909
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  - sfha_claim_share
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yoy-total-paid-2018_2019
+  dataset: nfip
+  question: How did total claims paid change from 2018 to 2019?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN year_of_loss = 2018 THEN total_paid END) AS paid_a, sum(CASE WHEN year_of_loss = 2019 THEN
+    total_paid END) AS paid_b, sum(CASE WHEN year_of_loss = 2019 THEN total_paid END) - sum(CASE WHEN year_of_loss = 2018
+    THEN total_paid END) AS change_paid FROM nfip_claims
+  gold_answer:
+    paid_a: 348044486.65999967
+    paid_b: 320576060.980001
+    change_paid: -27468425.679998696
+  gold_columns:
+  - paid_a
+  - paid_b
+  - change_paid
+  gold_rows:
+  - - 348044486.65999967
+    - 320576060.980001
+    - -27468425.679998696
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yoy-total-paid-2018_2022
+  dataset: nfip
+  question: How did total claims paid change from 2018 to 2022?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN year_of_loss = 2018 THEN total_paid END) AS paid_a, sum(CASE WHEN year_of_loss = 2022 THEN
+    total_paid END) AS paid_b, sum(CASE WHEN year_of_loss = 2022 THEN total_paid END) - sum(CASE WHEN year_of_loss = 2018
+    THEN total_paid END) AS change_paid FROM nfip_claims
+  gold_answer:
+    paid_a: 348044486.65999967
+    paid_b: 1500165252.349996
+    change_paid: 1152120765.6899965
+  gold_columns:
+  - paid_a
+  - paid_b
+  - change_paid
+  gold_rows:
+  - - 348044486.65999967
+    - 1500165252.349996
+    - 1152120765.6899965
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yoy-total-paid-2016_2022
+  dataset: nfip
+  question: How did total claims paid change from 2016 to 2022?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN year_of_loss = 2016 THEN total_paid END) AS paid_a, sum(CASE WHEN year_of_loss = 2022 THEN
+    total_paid END) AS paid_b, sum(CASE WHEN year_of_loss = 2022 THEN total_paid END) - sum(CASE WHEN year_of_loss = 2016
+    THEN total_paid END) AS change_paid FROM nfip_claims
+  gold_answer:
+    paid_a: 1247262957.0499973
+    paid_b: 1500165252.349996
+    change_paid: 252902295.29999876
+  gold_columns:
+  - paid_a
+  - paid_b
+  - change_paid
+  gold_rows:
+  - - 1247262957.0499973
+    - 1500165252.349996
+    - 252902295.29999876
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yoy-total-paid-2015_2017
+  dataset: nfip
+  question: How did total claims paid change from 2015 to 2017?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN year_of_loss = 2015 THEN total_paid END) AS paid_a, sum(CASE WHEN year_of_loss = 2017 THEN
+    total_paid END) AS paid_b, sum(CASE WHEN year_of_loss = 2017 THEN total_paid END) - sum(CASE WHEN year_of_loss = 2015
+    THEN total_paid END) AS change_paid FROM nfip_claims
+  gold_answer:
+    paid_a: 234672784.78999984
+    paid_b: 3070541097.7699943
+    change_paid: 2835868312.9799943
+  gold_columns:
+  - paid_a
+  - paid_b
+  - change_paid
+  gold_rows:
+  - - 234672784.78999984
+    - 3070541097.7699943
+    - 2835868312.9799943
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-yoy-total-paid-2020_2021
+  dataset: nfip
+  question: How did total claims paid change from 2020 to 2021?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT sum(CASE WHEN year_of_loss = 2020 THEN total_paid END) AS paid_a, sum(CASE WHEN year_of_loss = 2021 THEN
+    total_paid END) AS paid_b, sum(CASE WHEN year_of_loss = 2021 THEN total_paid END) - sum(CASE WHEN year_of_loss = 2020
+    THEN total_paid END) AS change_paid FROM nfip_claims
+  gold_answer:
+    paid_a: 176258243.6899999
+    paid_b: 464288948.4200003
+    change_paid: 288030704.7300004
+  gold_columns:
+  - paid_a
+  - paid_b
+  - change_paid
+  gold_rows:
+  - - 176258243.6899999
+    - 464288948.4200003
+    - 288030704.7300004
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-elevated-vs-not-sc
+  dataset: nfip
+  question: Do elevated buildings have lower average claim payments than non-elevated ones in SC?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN elevated_building_indicator THEN total_paid END) AS elevated_avg_paid, avg(CASE WHEN NOT
+    elevated_building_indicator THEN total_paid END) AS non_elevated_avg_paid FROM nfip_claims WHERE state = 'SC' AND total_paid
+    > 0 AND elevated_building_indicator IS NOT NULL
+  gold_answer:
+    elevated_avg_paid: 28912.538290434062
+    non_elevated_avg_paid: 47761.380275572155
+  gold_columns:
+  - elevated_avg_paid
+  - non_elevated_avg_paid
+  gold_rows:
+  - - 28912.538290434062
+    - 47761.380275572155
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-elevated-vs-not-fl
+  dataset: nfip
+  question: Do elevated buildings have lower average claim payments than non-elevated ones in FL?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN elevated_building_indicator THEN total_paid END) AS elevated_avg_paid, avg(CASE WHEN NOT
+    elevated_building_indicator THEN total_paid END) AS non_elevated_avg_paid FROM nfip_claims WHERE state = 'FL' AND total_paid
+    > 0 AND elevated_building_indicator IS NOT NULL
+  gold_answer:
+    elevated_avg_paid: 53716.99040182944
+    non_elevated_avg_paid: 108381.20417139279
+  gold_columns:
+  - elevated_avg_paid
+  - non_elevated_avg_paid
+  gold_rows:
+  - - 53716.99040182944
+    - 108381.20417139279
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-elevated-vs-not-nc
+  dataset: nfip
+  question: Do elevated buildings have lower average claim payments than non-elevated ones in NC?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN elevated_building_indicator THEN total_paid END) AS elevated_avg_paid, avg(CASE WHEN NOT
+    elevated_building_indicator THEN total_paid END) AS non_elevated_avg_paid FROM nfip_claims WHERE state = 'NC' AND total_paid
+    > 0 AND elevated_building_indicator IS NOT NULL
+  gold_answer:
+    elevated_avg_paid: 37045.534459605056
+    non_elevated_avg_paid: 66883.64745831785
+  gold_columns:
+  - elevated_avg_paid
+  - non_elevated_avg_paid
+  gold_rows:
+  - - 37045.534459605056
+    - 66883.64745831785
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-elevated-vs-not-la
+  dataset: nfip
+  question: Do elevated buildings have lower average claim payments than non-elevated ones in LA?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN elevated_building_indicator THEN total_paid END) AS elevated_avg_paid, avg(CASE WHEN NOT
+    elevated_building_indicator THEN total_paid END) AS non_elevated_avg_paid FROM nfip_claims WHERE state = 'LA' AND total_paid
+    > 0 AND elevated_building_indicator IS NOT NULL
+  gold_answer:
+    elevated_avg_paid: 39141.95671210474
+    non_elevated_avg_paid: 81883.55535078148
+  gold_columns:
+  - elevated_avg_paid
+  - non_elevated_avg_paid
+  gold_rows:
+  - - 39141.95671210474
+    - 81883.55535078148
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-elevated-vs-not-nj
+  dataset: nfip
+  question: Do elevated buildings have lower average claim payments than non-elevated ones in NJ?
+  difficulty: medium
+  analysis_type: comparison
+  gold_sql: SELECT avg(CASE WHEN elevated_building_indicator THEN total_paid END) AS elevated_avg_paid, avg(CASE WHEN NOT
+    elevated_building_indicator THEN total_paid END) AS non_elevated_avg_paid FROM nfip_claims WHERE state = 'NJ' AND total_paid
+    > 0 AND elevated_building_indicator IS NOT NULL
+  gold_answer:
+    elevated_avg_paid: 25409.37523728812
+    non_elevated_avg_paid: 46663.828670021554
+  gold_columns:
+  - elevated_avg_paid
+  - non_elevated_avg_paid
+  gold_rows:
+  - - 25409.37523728812
+    - 46663.828670021554
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-zone-change-2018_2019
+  dataset: nfip
+  question: Which rated flood zone contributed most to the change in total paid from 2018 to 2019, and by how much?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_zone AS (SELECT rated_flood_zone, sum(CASE WHEN year_of_loss = 2018 THEN total_paid ELSE 0 END) AS paid_a,
+    sum(CASE WHEN year_of_loss = 2019 THEN total_paid ELSE 0 END) AS paid_b FROM nfip_claims WHERE year_of_loss IN (2018,
+    2019) AND rated_flood_zone IS NOT NULL GROUP BY 1) SELECT rated_flood_zone, paid_b - paid_a AS delta_paid FROM by_zone
+    ORDER BY abs(paid_b - paid_a) DESC LIMIT 1
+  gold_answer:
+    delta_paid: -116370517.45000023
+  gold_columns:
+  - rated_flood_zone
+  - delta_paid
+  gold_rows:
+  - - AE
+    - -116370517.45000023
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-zone-change-2019_2021
+  dataset: nfip
+  question: Which rated flood zone contributed most to the change in total paid from 2019 to 2021, and by how much?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_zone AS (SELECT rated_flood_zone, sum(CASE WHEN year_of_loss = 2019 THEN total_paid ELSE 0 END) AS paid_a,
+    sum(CASE WHEN year_of_loss = 2021 THEN total_paid ELSE 0 END) AS paid_b FROM nfip_claims WHERE year_of_loss IN (2019,
+    2021) AND rated_flood_zone IS NOT NULL GROUP BY 1) SELECT rated_flood_zone, paid_b - paid_a AS delta_paid FROM by_zone
+    ORDER BY abs(paid_b - paid_a) DESC LIMIT 1
+  gold_answer:
+    delta_paid: 199622115.08999982
+  gold_columns:
+  - rated_flood_zone
+  - delta_paid
+  gold_rows:
+  - - AE
+    - 199622115.08999982
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-zone-change-2021_2023
+  dataset: nfip
+  question: Which rated flood zone contributed most to the change in total paid from 2021 to 2023, and by how much?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_zone AS (SELECT rated_flood_zone, sum(CASE WHEN year_of_loss = 2021 THEN total_paid ELSE 0 END) AS paid_a,
+    sum(CASE WHEN year_of_loss = 2023 THEN total_paid ELSE 0 END) AS paid_b FROM nfip_claims WHERE year_of_loss IN (2021,
+    2023) AND rated_flood_zone IS NOT NULL GROUP BY 1) SELECT rated_flood_zone, paid_b - paid_a AS delta_paid FROM by_zone
+    ORDER BY abs(paid_b - paid_a) DESC LIMIT 1
+  gold_answer:
+    delta_paid: -103890431.7199999
+  gold_columns:
+  - rated_flood_zone
+  - delta_paid
+  gold_rows:
+  - - X
+    - -103890431.7199999
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-zone-change-2023_2024
+  dataset: nfip
+  question: Which rated flood zone contributed most to the change in total paid from 2023 to 2024, and by how much?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_zone AS (SELECT rated_flood_zone, sum(CASE WHEN year_of_loss = 2023 THEN total_paid ELSE 0 END) AS paid_a,
+    sum(CASE WHEN year_of_loss = 2024 THEN total_paid ELSE 0 END) AS paid_b FROM nfip_claims WHERE year_of_loss IN (2023,
+    2024) AND rated_flood_zone IS NOT NULL GROUP BY 1) SELECT rated_flood_zone, paid_b - paid_a AS delta_paid FROM by_zone
+    ORDER BY abs(paid_b - paid_a) DESC LIMIT 1
+  gold_answer:
+    delta_paid: 2009687896.6699944
+  gold_columns:
+  - rated_flood_zone
+  - delta_paid
+  gold_rows:
+  - - AE
+    - 2009687896.6699944
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-zone-change-2016_2017
+  dataset: nfip
+  question: Which rated flood zone contributed most to the change in total paid from 2016 to 2017, and by how much?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_zone AS (SELECT rated_flood_zone, sum(CASE WHEN year_of_loss = 2016 THEN total_paid ELSE 0 END) AS paid_a,
+    sum(CASE WHEN year_of_loss = 2017 THEN total_paid ELSE 0 END) AS paid_b FROM nfip_claims WHERE year_of_loss IN (2016,
+    2017) AND rated_flood_zone IS NOT NULL GROUP BY 1) SELECT rated_flood_zone, paid_b - paid_a AS delta_paid FROM by_zone
+    ORDER BY abs(paid_b - paid_a) DESC LIMIT 1
+  gold_answer:
+    delta_paid: 976998100.1800027
+  gold_columns:
+  - rated_flood_zone
+  - delta_paid
+  gold_rows:
+  - - X
+    - 976998100.1800027
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-zone-change-2017_2019
+  dataset: nfip
+  question: Which rated flood zone contributed most to the change in total paid from 2017 to 2019, and by how much?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH by_zone AS (SELECT rated_flood_zone, sum(CASE WHEN year_of_loss = 2017 THEN total_paid ELSE 0 END) AS paid_a,
+    sum(CASE WHEN year_of_loss = 2019 THEN total_paid ELSE 0 END) AS paid_b FROM nfip_claims WHERE year_of_loss IN (2017,
+    2019) AND rated_flood_zone IS NOT NULL GROUP BY 1) SELECT rated_flood_zone, paid_b - paid_a AS delta_paid FROM by_zone
+    ORDER BY abs(paid_b - paid_a) DESC LIMIT 1
+  gold_answer:
+    delta_paid: -1352963307.0900002
+  gold_columns:
+  - rated_flood_zone
+  - delta_paid
+  gold_rows:
+  - - AE
+    - -1352963307.0900002
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-state-share-year-2018
+  dataset: nfip
+  question: Which state accounted for the largest share of total paid in 2018, and what share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2018) SELECT state, sum(total_paid)
+    AS state_paid, sum(total_paid) / tot.t AS share FROM nfip_claims, tot WHERE year_of_loss = 2018 GROUP BY state, tot.t
+    ORDER BY share DESC LIMIT 1
+  gold_answer:
+    state_paid: 194519031.6399999
+    share: 0.5588912886013423
+  gold_columns:
+  - state
+  - state_paid
+  - share
+  gold_rows:
+  - - NC
+    - 194519031.6399999
+    - 0.5588912886013423
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-state-share-year-2024
+  dataset: nfip
+  question: Which state accounted for the largest share of total paid in 2024, and what share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2024) SELECT state, sum(total_paid)
+    AS state_paid, sum(total_paid) / tot.t AS share FROM nfip_claims, tot WHERE year_of_loss = 2024 GROUP BY state, tot.t
+    ORDER BY share DESC LIMIT 1
+  gold_answer:
+    state_paid: 2299600554.009995
+    share: 0.9291068526580805
+  gold_columns:
+  - state
+  - state_paid
+  - share
+  gold_rows:
+  - - FL
+    - 2299600554.009995
+    - 0.9291068526580805
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-state-share-year-2016
+  dataset: nfip
+  question: Which state accounted for the largest share of total paid in 2016, and what share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2016) SELECT state, sum(total_paid)
+    AS state_paid, sum(total_paid) / tot.t AS share FROM nfip_claims, tot WHERE year_of_loss = 2016 GROUP BY state, tot.t
+    ORDER BY share DESC LIMIT 1
+  gold_answer:
+    state_paid: 830938264.1999993
+    share: 0.66620936627936
+  gold_columns:
+  - state
+  - state_paid
+  - share
+  gold_rows:
+  - - LA
+    - 830938264.1999993
+    - 0.66620936627936
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-state-share-year-2019
+  dataset: nfip
+  question: Which state accounted for the largest share of total paid in 2019, and what share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2019) SELECT state, sum(total_paid)
+    AS state_paid, sum(total_paid) / tot.t AS share FROM nfip_claims, tot WHERE year_of_loss = 2019 GROUP BY state, tot.t
+    ORDER BY share DESC LIMIT 1
+  gold_answer:
+    state_paid: 262633499.00000033
+    share: 0.8192548694906593
+  gold_columns:
+  - state
+  - state_paid
+  - share
+  gold_rows:
+  - - TX
+    - 262633499.00000033
+    - 0.8192548694906593
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-state-share-year-2017
+  dataset: nfip
+  question: Which state accounted for the largest share of total paid in 2017, and what share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2017) SELECT state, sum(total_paid)
+    AS state_paid, sum(total_paid) / tot.t AS share FROM nfip_claims, tot WHERE year_of_loss = 2017 GROUP BY state, tot.t
+    ORDER BY share DESC LIMIT 1
+  gold_answer:
+    state_paid: 2724048766.6600003
+    share: 0.8871559376418584
+  gold_columns:
+  - state
+  - state_paid
+  - share
+  gold_rows:
+  - - TX
+    - 2724048766.6600003
+    - 0.8871559376418584
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-state-share-year-2020
+  dataset: nfip
+  question: Which state accounted for the largest share of total paid in 2020, and what share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2020) SELECT state, sum(total_paid)
+    AS state_paid, sum(total_paid) / tot.t AS share FROM nfip_claims, tot WHERE year_of_loss = 2020 GROUP BY state, tot.t
+    ORDER BY share DESC LIMIT 1
+  gold_answer:
+    state_paid: 97009096.53000015
+    share: 0.5503804786607209
+  gold_columns:
+  - state
+  - state_paid
+  - share
+  gold_rows:
+  - - FL
+    - 97009096.53000015
+    - 0.5503804786607209
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-fl_2017_2022
+  dataset: nfip
+  question: Was the change in total paid in FL from 2017 to 2022 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'FL' AND
+    year_of_loss IN (2017, 2022) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2022 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2017 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2022 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2017 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 2.0110188167486016
+    severity_ratio: 2.4098962012889698
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 2.0110188167486016
+    - 2.4098962012889698
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-ny_2022_2024
+  dataset: nfip
+  question: Was the change in total paid in NY from 2022 to 2024 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'NY' AND
+    year_of_loss IN (2022, 2024) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2024 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2022 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2024 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2022 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 0.7366666666666667
+    severity_ratio: 1.4443756090691187
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 0.7366666666666667
+    - 1.4443756090691187
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-fl_2016_2020
+  dataset: nfip
+  question: Was the change in total paid in FL from 2016 to 2020 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'FL' AND
+    year_of_loss IN (2016, 2020) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2020 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2016 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2020 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2016 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 1.179650238473768
+    severity_ratio: 0.9856710072513915
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 1.179650238473768
+    - 0.9856710072513915
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-ny_2018_2023
+  dataset: nfip
+  question: Was the change in total paid in NY from 2018 to 2023 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'NY' AND
+    year_of_loss IN (2018, 2023) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2023 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2018 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2023 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2018 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 3.1
+    severity_ratio: 1.5978239542084038
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 3.1
+    - 1.5978239542084038
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-la_2015_2022
+  dataset: nfip
+  question: Was the change in total paid in LA from 2015 to 2022 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'LA' AND
+    year_of_loss IN (2015, 2022) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2022 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2015 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2022 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2015 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 0.2919254658385093
+    severity_ratio: 0.9457609055160505
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 0.2919254658385093
+    - 0.9457609055160505
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-fl_2018_2023
+  dataset: nfip
+  question: Was the change in total paid in FL from 2018 to 2023 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'FL' AND
+    year_of_loss IN (2018, 2023) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2023 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2018 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2023 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2018 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 2.4785643070787637
+    severity_ratio: 1.1417006101027187
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 2.4785643070787637
+    - 1.1417006101027187
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-severity-vs-frequency-fl_2016_2019
+  dataset: nfip
+  question: Was the change in total paid in FL from 2016 to 2019 driven more by claim count or by average severity? Give both
+    ratios.
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH y AS (SELECT year_of_loss, count(*) AS n, avg(total_paid) AS sev FROM nfip_claims WHERE state = 'FL' AND
+    year_of_loss IN (2016, 2019) AND total_paid > 0 GROUP BY 1) SELECT max(CASE WHEN year_of_loss = 2019 THEN n END) * 1.0
+    / max(CASE WHEN year_of_loss = 2016 THEN n END) AS count_ratio, max(CASE WHEN year_of_loss = 2019 THEN sev END) / max(CASE
+    WHEN year_of_loss = 2016 THEN sev END) AS severity_ratio FROM y
+  gold_answer:
+    count_ratio: 0.08956014838367779
+    severity_ratio: 0.8556178700226466
+  gold_columns:
+  - count_ratio
+  - severity_ratio
+  gold_rows:
+  - - 0.08956014838367779
+    - 0.8556178700226466
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - claim_count
+  - avg_claim_severity
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-loss-ratio-zone-nc
+  dataset: nfip
+  question: In NC, which rated flood zone has the highest building loss ratio (building paid over building coverage), among
+    zones with at least 100 claims?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT rated_flood_zone, sum(amount_paid_on_building_claim) / sum(total_building_insurance_coverage) AS building_loss_ratio,
+    count(*) AS claim_count FROM nfip_claims WHERE state = 'NC' AND total_building_insurance_coverage > 0 AND rated_flood_zone
+    IS NOT NULL GROUP BY 1 HAVING count(*) >= 100 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    building_loss_ratio: 0.1558607930275033
+    claim_count: 6477.0
+  gold_columns:
+  - rated_flood_zone
+  - building_loss_ratio
+  - claim_count
+  gold_rows:
+  - - AE
+    - 0.1558607930275033
+    - 6477
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - building_loss_ratio
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-loss-ratio-zone-nj
+  dataset: nfip
+  question: In NJ, which rated flood zone has the highest building loss ratio (building paid over building coverage), among
+    zones with at least 100 claims?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT rated_flood_zone, sum(amount_paid_on_building_claim) / sum(total_building_insurance_coverage) AS building_loss_ratio,
+    count(*) AS claim_count FROM nfip_claims WHERE state = 'NJ' AND total_building_insurance_coverage > 0 AND rated_flood_zone
+    IS NOT NULL GROUP BY 1 HAVING count(*) >= 100 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    building_loss_ratio: 0.09265843389549054
+    claim_count: 822.0
+  gold_columns:
+  - rated_flood_zone
+  - building_loss_ratio
+  - claim_count
+  gold_rows:
+  - - X
+    - 0.09265843389549054
+    - 822
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - building_loss_ratio
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-loss-ratio-zone-ny
+  dataset: nfip
+  question: In NY, which rated flood zone has the highest building loss ratio (building paid over building coverage), among
+    zones with at least 100 claims?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT rated_flood_zone, sum(amount_paid_on_building_claim) / sum(total_building_insurance_coverage) AS building_loss_ratio,
+    count(*) AS claim_count FROM nfip_claims WHERE state = 'NY' AND total_building_insurance_coverage > 0 AND rated_flood_zone
+    IS NOT NULL GROUP BY 1 HAVING count(*) >= 100 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    building_loss_ratio: 0.133276664943923
+    claim_count: 139.0
+  gold_columns:
+  - rated_flood_zone
+  - building_loss_ratio
+  - claim_count
+  gold_rows:
+  - - A
+    - 0.133276664943923
+    - 139
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - building_loss_ratio
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-loss-ratio-zone-la
+  dataset: nfip
+  question: In LA, which rated flood zone has the highest building loss ratio (building paid over building coverage), among
+    zones with at least 100 claims?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT rated_flood_zone, sum(amount_paid_on_building_claim) / sum(total_building_insurance_coverage) AS building_loss_ratio,
+    count(*) AS claim_count FROM nfip_claims WHERE state = 'LA' AND total_building_insurance_coverage > 0 AND rated_flood_zone
+    IS NOT NULL GROUP BY 1 HAVING count(*) >= 100 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    building_loss_ratio: 0.3261725859715494
+    claim_count: 11527.0
+  gold_columns:
+  - rated_flood_zone
+  - building_loss_ratio
+  - claim_count
+  gold_rows:
+  - - AE
+    - 0.3261725859715494
+    - 11527
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - building_loss_ratio
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-loss-ratio-zone-tx
+  dataset: nfip
+  question: In TX, which rated flood zone has the highest building loss ratio (building paid over building coverage), among
+    zones with at least 100 claims?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT rated_flood_zone, sum(amount_paid_on_building_claim) / sum(total_building_insurance_coverage) AS building_loss_ratio,
+    count(*) AS claim_count FROM nfip_claims WHERE state = 'TX' AND total_building_insurance_coverage > 0 AND rated_flood_zone
+    IS NOT NULL GROUP BY 1 HAVING count(*) >= 100 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    building_loss_ratio: 0.4045585007605023
+    claim_count: 442.0
+  gold_columns:
+  - rated_flood_zone
+  - building_loss_ratio
+  - claim_count
+  gold_rows:
+  - - AH
+    - 0.4045585007605023
+    - 442
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - building_loss_ratio
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-loss-ratio-zone-sc
+  dataset: nfip
+  question: In SC, which rated flood zone has the highest building loss ratio (building paid over building coverage), among
+    zones with at least 100 claims?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: SELECT rated_flood_zone, sum(amount_paid_on_building_claim) / sum(total_building_insurance_coverage) AS building_loss_ratio,
+    count(*) AS claim_count FROM nfip_claims WHERE state = 'SC' AND total_building_insurance_coverage > 0 AND rated_flood_zone
+    IS NOT NULL GROUP BY 1 HAVING count(*) >= 100 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    building_loss_ratio: 0.23007018010556735
+    claim_count: 133.0
+  gold_columns:
+  - rated_flood_zone
+  - building_loss_ratio
+  - claim_count
+  gold_rows:
+  - - A
+    - 0.23007018010556735
+    - 133
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - building_loss_ratio
+  - claim_count
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-event-share-2021
+  dataset: nfip
+  question: What share of all claims paid in 2021 came from the single largest named flood event, and which event was it?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2021) SELECT flood_event, sum(total_paid)
+    / tot.t AS event_share FROM nfip_claims, tot WHERE year_of_loss = 2021 AND flood_event IS NOT NULL GROUP BY flood_event,
+    tot.t ORDER BY event_share DESC LIMIT 1
+  gold_answer:
+    event_share: 0.7577399739692905
+  gold_columns:
+  - flood_event
+  - event_share
+  gold_rows:
+  - - Hurricane Ida
+    - 0.7577399739692905
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-event-share-2015
+  dataset: nfip
+  question: What share of all claims paid in 2015 came from the single largest named flood event, and which event was it?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2015) SELECT flood_event, sum(total_paid)
+    / tot.t AS event_share FROM nfip_claims, tot WHERE year_of_loss = 2015 AND flood_event IS NOT NULL GROUP BY flood_event,
+    tot.t ORDER BY event_share DESC LIMIT 1
+  gold_answer:
+    event_share: 0.5878325461703829
+  gold_columns:
+  - flood_event
+  - event_share
+  gold_rows:
+  - - Early summer storms
+    - 0.5878325461703829
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-event-share-2017
+  dataset: nfip
+  question: What share of all claims paid in 2017 came from the single largest named flood event, and which event was it?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2017) SELECT flood_event, sum(total_paid)
+    / tot.t AS event_share FROM nfip_claims, tot WHERE year_of_loss = 2017 AND flood_event IS NOT NULL GROUP BY flood_event,
+    tot.t ORDER BY event_share DESC LIMIT 1
+  gold_answer:
+    event_share: 0.8847720411242972
+  gold_columns:
+  - flood_event
+  - event_share
+  gold_rows:
+  - - Hurricane Harvey
+    - 0.8847720411242972
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-event-share-2024
+  dataset: nfip
+  question: What share of all claims paid in 2024 came from the single largest named flood event, and which event was it?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2024) SELECT flood_event, sum(total_paid)
+    / tot.t AS event_share FROM nfip_claims, tot WHERE year_of_loss = 2024 AND flood_event IS NOT NULL GROUP BY flood_event,
+    tot.t ORDER BY event_share DESC LIMIT 1
+  gold_answer:
+    event_share: 0.7861269261227681
+  gold_columns:
+  - flood_event
+  - event_share
+  gold_rows:
+  - - Hurricane Helene
+    - 0.7861269261227681
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-event-share-2016
+  dataset: nfip
+  question: What share of all claims paid in 2016 came from the single largest named flood event, and which event was it?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2016) SELECT flood_event, sum(total_paid)
+    / tot.t AS event_share FROM nfip_claims, tot WHERE year_of_loss = 2016 AND flood_event IS NOT NULL GROUP BY flood_event,
+    tot.t ORDER BY event_share DESC LIMIT 1
+  gold_answer:
+    event_share: 0.6020873431663195
+  gold_columns:
+  - flood_event
+  - event_share
+  gold_rows:
+  - - Mid-summer severe storms
+    - 0.6020873431663195
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-event-share-2018
+  dataset: nfip
+  question: What share of all claims paid in 2018 came from the single largest named flood event, and which event was it?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE year_of_loss = 2018) SELECT flood_event, sum(total_paid)
+    / tot.t AS event_share FROM nfip_claims, tot WHERE year_of_loss = 2018 AND flood_event IS NOT NULL GROUP BY flood_event,
+    tot.t ORDER BY event_share DESC LIMIT 1
+  gold_answer:
+    event_share: 0.6410431695415849
+  gold_columns:
+  - flood_event
+  - event_share
+  gold_rows:
+  - - Hurricane Florence
+    - 0.6410431695415849
+  expected_tables:
+  - nfip_claims
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-community-most-claims-state-nc
+  dataset: nfip
+  question: Which NFIP community in NC has the most claims, and how many?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT m.community_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current
+    = m.community_id_number WHERE c.state = 'NC' GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 691.0
+  gold_columns:
+  - community_name
+  - claim_count
+  gold_rows:
+  - - DARE COUNTY*
+    - 691
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - claim_count
+  - claims_per_community
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-community-most-claims-state-ny
+  dataset: nfip
+  question: Which NFIP community in NY has the most claims, and how many?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT m.community_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current
+    = m.community_id_number WHERE c.state = 'NY' GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 759.0
+  gold_columns:
+  - community_name
+  - claim_count
+  gold_rows:
+  - - NEW YORK, CITY OF
+    - 759
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - claim_count
+  - claims_per_community
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-community-most-claims-state-la
+  dataset: nfip
+  question: Which NFIP community in LA has the most claims, and how many?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT m.community_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current
+    = m.community_id_number WHERE c.state = 'LA' GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 2883.0
+  gold_columns:
+  - community_name
+  - claim_count
+  gold_rows:
+  - - EAST BATON ROUGE PARISH
+    - 2883
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - claim_count
+  - claims_per_community
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-community-most-claims-state-tx
+  dataset: nfip
+  question: Which NFIP community in TX has the most claims, and how many?
+  difficulty: easy
+  analysis_type: lookup
+  gold_sql: SELECT m.community_name, count(*) AS claim_count FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current
+    = m.community_id_number WHERE c.state = 'TX' GROUP BY 1 ORDER BY 2 DESC LIMIT 1
+  gold_answer:
+    claim_count: 11024.0
+  gold_columns:
+  - community_name
+  - claim_count
+  gold_rows:
+  - - HOUSTON, CITY OF
+    - 11024
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - claim_count
+  - claims_per_community
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-community-share-state-year-tx_2021
+  dataset: nfip
+  question: In TX for losses in 2021, which community accounted for the largest share of total paid, and what was that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE state = 'TX' AND year_of_loss = 2021) SELECT m.community_name,
+    sum(c.total_paid) / tot.t AS share FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current = m.community_id_number,
+    tot WHERE c.state = 'TX' AND c.year_of_loss = 2021 GROUP BY m.community_name, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    share: 0.06789701453793644
+  gold_columns:
+  - community_name
+  - share
+  gold_rows:
+  - - HOUSTON, CITY OF
+    - 0.06789701453793644
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-community-share-state-year-nc_2024
+  dataset: nfip
+  question: In NC for losses in 2024, which community accounted for the largest share of total paid, and what was that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE state = 'NC' AND year_of_loss = 2024) SELECT m.community_name,
+    sum(c.total_paid) / tot.t AS share FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current = m.community_id_number,
+    tot WHERE c.state = 'NC' AND c.year_of_loss = 2024 GROUP BY m.community_name, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    share: 0.1134792278709622
+  gold_columns:
+  - community_name
+  - share
+  gold_rows:
+  - - ASHEVILLE, CITY OF
+    - 0.1134792278709622
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-community-share-state-year-ny_2024
+  dataset: nfip
+  question: In NY for losses in 2024, which community accounted for the largest share of total paid, and what was that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE state = 'NY' AND year_of_loss = 2024) SELECT m.community_name,
+    sum(c.total_paid) / tot.t AS share FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current = m.community_id_number,
+    tot WHERE c.state = 'NY' AND c.year_of_loss = 2024 GROUP BY m.community_name, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    share: 0.10865918863047276
+  gold_columns:
+  - community_name
+  - share
+  gold_rows:
+  - - POTSDAM,TOWN OF
+    - 0.10865918863047276
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-community-share-state-year-sc_2021
+  dataset: nfip
+  question: In SC for losses in 2021, which community accounted for the largest share of total paid, and what was that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE state = 'SC' AND year_of_loss = 2021) SELECT m.community_name,
+    sum(c.total_paid) / tot.t AS share FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current = m.community_id_number,
+    tot WHERE c.state = 'SC' AND c.year_of_loss = 2021 GROUP BY m.community_name, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    share: 0.5175900201270216
+  gold_columns:
+  - community_name
+  - share
+  gold_rows:
+  - - HORRY COUNTY *
+    - 0.5175900201270216
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-community-share-state-year-tx_2019
+  dataset: nfip
+  question: In TX for losses in 2019, which community accounted for the largest share of total paid, and what was that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE state = 'TX' AND year_of_loss = 2019) SELECT m.community_name,
+    sum(c.total_paid) / tot.t AS share FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current = m.community_id_number,
+    tot WHERE c.state = 'TX' AND c.year_of_loss = 2019 GROUP BY m.community_name, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    share: 0.1765826328575088
+  gold_columns:
+  - community_name
+  - share
+  gold_rows:
+  - - HOUSTON, CITY OF
+    - 0.1765826328575088
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template
+- id: nfip-driver-community-share-state-year-la_2024
+  dataset: nfip
+  question: In LA for losses in 2024, which community accounted for the largest share of total paid, and what was that share?
+  difficulty: hard
+  analysis_type: driver
+  gold_sql: WITH tot AS (SELECT sum(total_paid) AS t FROM nfip_claims WHERE state = 'LA' AND year_of_loss = 2024) SELECT m.community_name,
+    sum(c.total_paid) / tot.t AS share FROM nfip_claims c JOIN nfip_communities m ON c.nfip_community_number_current = m.community_id_number,
+    tot WHERE c.state = 'LA' AND c.year_of_loss = 2024 GROUP BY m.community_name, tot.t ORDER BY share DESC LIMIT 1
+  gold_answer:
+    share: 0.2246461202091715
+  gold_columns:
+  - community_name
+  - share
+  gold_rows:
+  - - KENNER, CITY OF
+    - 0.2246461202091715
+  expected_tables:
+  - nfip_claims
+  - nfip_communities
+  expected_metrics:
+  - total_paid
+  reviewed: false
+  review_note: ''
+  generator: template

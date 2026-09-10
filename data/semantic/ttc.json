@@ -1,0 +1,883 @@
+{
+  "dataset": "ttc",
+  "tables": [
+    {
+      "dataset": "ttc",
+      "name": "ttc_subway_delays",
+      "description": "Subway and SRT delay incidents logged by TTC control, 2023-2024. Each incident has a station, a delay code (see subway_delay_codes), the delay in minutes and the resulting gap between trains.",
+      "grain": "one row per delay incident",
+      "row_count": 49393,
+      "columns": [
+        {
+          "table": "ttc_subway_delays",
+          "name": "delay_date",
+          "dtype": "DATE",
+          "description": "Calendar date of the incident.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 731,
+          "sample_values": [
+            "2023-01-26",
+            "2023-02-06",
+            "2023-02-09",
+            "2023-02-25",
+            "2023-03-08"
+          ],
+          "min_value": "2023-01-01",
+          "max_value": "2024-12-31"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "delay_time",
+          "dtype": "VARCHAR",
+          "description": "Local clock time of the incident as HH:MM text (24h).",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1437,
+          "sample_values": [
+            "07:44",
+            "08:16",
+            "18:59",
+            "23:31",
+            "11:26"
+          ],
+          "min_value": "00:00",
+          "max_value": "23:59"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "day_of_week",
+          "dtype": "VARCHAR",
+          "description": "Weekday name, e.g. Monday.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 7,
+          "sample_values": [
+            "Thursday",
+            "Tuesday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "min_value": "Friday",
+          "max_value": "Wednesday"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "station",
+          "dtype": "VARCHAR",
+          "description": "Station or location name, upper case, e.g. BLOOR STATION.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 677,
+          "sample_values": [
+            "YONGE BD STATION",
+            "LAWRENCE STATION",
+            "HIGHWAY 407 STATION",
+            "COXWELL STATION",
+            "SUMMERHILL STATION"
+          ],
+          "min_value": "(APPROACHING) KENNEDY",
+          "max_value": "YU/BD"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "code",
+          "dtype": "VARCHAR",
+          "description": "Delay code; join to subway_delay_codes.code for the description.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 180,
+          "sample_values": [
+            "SUAP",
+            "TUNCA",
+            "PUTO",
+            "MRWEA",
+            "PUSIS"
+          ],
+          "min_value": "ERAC",
+          "max_value": "XXXXX"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "min_delay",
+          "dtype": "BIGINT",
+          "description": "Length of the delay to the vehicle in minutes. Zero means logged but no delay.",
+          "unit": "minutes",
+          "null_fraction": 0.0,
+          "distinct_count": 132,
+          "sample_values": [
+            "41",
+            "34",
+            "146",
+            "195",
+            "110"
+          ],
+          "min_value": "0",
+          "max_value": "716"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "min_gap",
+          "dtype": "BIGINT",
+          "description": "Resulting headway gap to the next vehicle in minutes.",
+          "unit": "minutes",
+          "null_fraction": 0.0,
+          "distinct_count": 142,
+          "sample_values": [
+            "34",
+            "183",
+            "41",
+            "110",
+            "200"
+          ],
+          "min_value": "0",
+          "max_value": "719"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "bound",
+          "dtype": "VARCHAR",
+          "description": "Direction of travel: N, S, E, W (null when not applicable).",
+          "unit": null,
+          "null_fraction": 0.365,
+          "distinct_count": 5,
+          "sample_values": [
+            "E",
+            "B",
+            "N",
+            "W",
+            "S"
+          ],
+          "min_value": "B",
+          "max_value": "W"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "line",
+          "dtype": "VARCHAR",
+          "description": "Subway line code: YU (Line 1), BD (Line 2), SHP (Line 4), SRT.",
+          "unit": null,
+          "null_fraction": 0.0019,
+          "distinct_count": 26,
+          "sample_values": [
+            "YU / BD",
+            "SHEP",
+            "ONGE-UNIVERSITY AND BL",
+            "BLOOR DANFORTH & YONGE",
+            "YUS/BD"
+          ],
+          "min_value": "109 RANEE",
+          "max_value": "YUS/BD"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "vehicle",
+          "dtype": "BIGINT",
+          "description": "Vehicle number; 0 means unknown.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 914,
+          "sample_values": [
+            "5816",
+            "5886",
+            "5178",
+            "5029",
+            "6146"
+          ],
+          "min_value": "0",
+          "max_value": "9546"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "delay_hour",
+          "dtype": "BIGINT",
+          "description": "Hour of day (0-23) parsed from delay_time.",
+          "unit": "hour",
+          "null_fraction": 0.0,
+          "distinct_count": 24,
+          "sample_values": [
+            "21",
+            "0",
+            "13",
+            "19",
+            "23"
+          ],
+          "min_value": "0",
+          "max_value": "23"
+        },
+        {
+          "table": "ttc_subway_delays",
+          "name": "mode",
+          "dtype": "VARCHAR",
+          "description": "Transit mode: subway, bus or streetcar.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1,
+          "sample_values": [
+            "subway"
+          ],
+          "min_value": "subway",
+          "max_value": "subway"
+        }
+      ],
+      "time_column": "delay_date",
+      "time_min": "2023-01-01",
+      "time_max": "2024-12-31"
+    },
+    {
+      "dataset": "ttc",
+      "name": "ttc_bus_delays",
+      "description": "Bus delay incidents by route and location, 2023-2024. Causes are free-text incident categories (e.g. Mechanical, Operations - Operator, Collision - TTC).",
+      "grain": "one row per delay incident",
+      "row_count": 115452,
+      "columns": [
+        {
+          "table": "ttc_bus_delays",
+          "name": "delay_date",
+          "dtype": "DATE",
+          "description": "Calendar date of the incident.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 731,
+          "sample_values": [
+            "2023-01-27",
+            "2023-02-02",
+            "2023-02-04",
+            "2023-02-26",
+            "2023-03-05"
+          ],
+          "min_value": "2023-01-01",
+          "max_value": "2024-12-31"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "route",
+          "dtype": "VARCHAR",
+          "description": "Route number as text, e.g. 501 (streetcar) or 36 (bus).",
+          "unit": null,
+          "null_fraction": 0.0103,
+          "distinct_count": 310,
+          "sample_values": [
+            "72",
+            "34",
+            "98",
+            "109",
+            "110"
+          ],
+          "min_value": "0",
+          "max_value": "YU"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "delay_time",
+          "dtype": "VARCHAR",
+          "description": "Local clock time of the incident as HH:MM text (24h).",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1440,
+          "sample_values": [
+            "03:52",
+            "09:02",
+            "09:47",
+            "13:33",
+            "08:40"
+          ],
+          "min_value": "00:00",
+          "max_value": "23:59"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "day_of_week",
+          "dtype": "VARCHAR",
+          "description": "Weekday name, e.g. Monday.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 7,
+          "sample_values": [
+            "Thursday",
+            "Sunday",
+            "Tuesday",
+            "Friday",
+            "Saturday"
+          ],
+          "min_value": "Friday",
+          "max_value": "Wednesday"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "location",
+          "dtype": "VARCHAR",
+          "description": "Intersection or stop name where the delay occurred.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 17497,
+          "sample_values": [
+            "FINCH AND ARROW",
+            "LAWRENCE STATION",
+            "EGLINTON AND PEAREN ST",
+            "EGLIINTON AND DUPLEX",
+            "SHEPPARD AND BRIMLEY"
+          ],
+          "min_value": "$0 RIVALDA RD",
+          "max_value": "`WARDEN STATION"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "incident",
+          "dtype": "VARCHAR",
+          "description": "Incident category, e.g. Mechanical, Diversion, Collision - TTC.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 13,
+          "sample_values": [
+            "Mechanical",
+            "Investigation",
+            "Security",
+            "Road Blocked - NON-TTC Collision",
+            "General Delay"
+          ],
+          "min_value": "Cleaning - Unsanitary",
+          "max_value": "Vision"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "min_delay",
+          "dtype": "BIGINT",
+          "description": "Length of the delay to the vehicle in minutes. Zero means logged but no delay.",
+          "unit": "minutes",
+          "null_fraction": 0.0,
+          "distinct_count": 660,
+          "sample_values": [
+            "361",
+            "382",
+            "109",
+            "41",
+            "110"
+          ],
+          "min_value": "0",
+          "max_value": "998"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "min_gap",
+          "dtype": "BIGINT",
+          "description": "Resulting headway gap to the next vehicle in minutes.",
+          "unit": "minutes",
+          "null_fraction": 0.0,
+          "distinct_count": 714,
+          "sample_values": [
+            "40",
+            "26",
+            "19",
+            "38",
+            "32"
+          ],
+          "min_value": "0",
+          "max_value": "997"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "bound",
+          "dtype": "VARCHAR",
+          "description": "Direction of travel: N, S, E, W (null when not applicable).",
+          "unit": null,
+          "null_fraction": 0.165,
+          "distinct_count": 19,
+          "sample_values": [
+            "B",
+            "`",
+            "N",
+            "E",
+            "1"
+          ],
+          "min_value": "/",
+          "max_value": "`"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "vehicle",
+          "dtype": "BIGINT",
+          "description": "Vehicle number; 0 means unknown.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2747,
+          "sample_values": [
+            "3573",
+            "8632",
+            "3547",
+            "1223",
+            "1328"
+          ],
+          "min_value": "0",
+          "max_value": "98035"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "delay_hour",
+          "dtype": "BIGINT",
+          "description": "Hour of day (0-23) parsed from delay_time.",
+          "unit": "hour",
+          "null_fraction": 0.0,
+          "distinct_count": 24,
+          "sample_values": [
+            "21",
+            "0",
+            "13",
+            "19",
+            "23"
+          ],
+          "min_value": "0",
+          "max_value": "23"
+        },
+        {
+          "table": "ttc_bus_delays",
+          "name": "mode",
+          "dtype": "VARCHAR",
+          "description": "Transit mode: subway, bus or streetcar.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1,
+          "sample_values": [
+            "bus"
+          ],
+          "min_value": "bus",
+          "max_value": "bus"
+        }
+      ],
+      "time_column": "delay_date",
+      "time_min": "2023-01-01",
+      "time_max": "2024-12-31"
+    },
+    {
+      "dataset": "ttc",
+      "name": "ttc_streetcar_delays",
+      "description": "Streetcar delay incidents by route and location, 2023-2024. Same incident categories as bus delays.",
+      "grain": "one row per delay incident",
+      "row_count": 28582,
+      "columns": [
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "delay_date",
+          "dtype": "DATE",
+          "description": "Calendar date of the incident.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 731,
+          "sample_values": [
+            "2023-01-26",
+            "2023-02-06",
+            "2023-02-09",
+            "2023-02-25",
+            "2023-03-08"
+          ],
+          "min_value": "2023-01-01",
+          "max_value": "2024-12-31"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "route",
+          "dtype": "VARCHAR",
+          "description": "Route number as text, e.g. 501 (streetcar) or 36 (bus).",
+          "unit": null,
+          "null_fraction": 0.0099,
+          "distinct_count": 55,
+          "sample_values": [
+            "540",
+            "555",
+            "504",
+            "506",
+            "899"
+          ],
+          "min_value": "133",
+          "max_value": "YU"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "delay_time",
+          "dtype": "VARCHAR",
+          "description": "Local clock time of the incident as HH:MM text (24h).",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1440,
+          "sample_values": [
+            "02:59",
+            "05:38",
+            "14:44",
+            "15:40",
+            "23:56"
+          ],
+          "min_value": "00:00",
+          "max_value": "23:59"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "day_of_week",
+          "dtype": "VARCHAR",
+          "description": "Weekday name, e.g. Monday.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 7,
+          "sample_values": [
+            "Thursday",
+            "Monday",
+            "Wednesday",
+            "Tuesday",
+            "Friday"
+          ],
+          "min_value": "Friday",
+          "max_value": "Wednesday"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "location",
+          "dtype": "VARCHAR",
+          "description": "Intersection or stop name where the delay occurred.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 3765,
+          "sample_values": [
+            "LANSDOWNE AND DUNDAS",
+            "KING AND ATLANTIC",
+            "QUEEN AND DOVERCOURT",
+            "DUNDAS AND OSSINGTON",
+            "SPADINA STATION"
+          ],
+          "min_value": "(OUTSIDE) MCCAUL LOOP",
+          "max_value": "`DUNDAS AND DUFFERIN"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "incident",
+          "dtype": "VARCHAR",
+          "description": "Incident category, e.g. Mechanical, Diversion, Collision - TTC.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 14,
+          "sample_values": [
+            "Security",
+            "Investigation",
+            "Mechanical",
+            "Late Entering Service",
+            "Operations"
+          ],
+          "min_value": "Cleaning - Unsanitary",
+          "max_value": "Utilized Off Route"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "min_delay",
+          "dtype": "BIGINT",
+          "description": "Length of the delay to the vehicle in minutes. Zero means logged but no delay.",
+          "unit": "minutes",
+          "null_fraction": 0.0,
+          "distinct_count": 289,
+          "sample_values": [
+            "8",
+            "16",
+            "150",
+            "43",
+            "17"
+          ],
+          "min_value": "0",
+          "max_value": "960"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "min_gap",
+          "dtype": "BIGINT",
+          "description": "Resulting headway gap to the next vehicle in minutes.",
+          "unit": "minutes",
+          "null_fraction": 0.0,
+          "distinct_count": 310,
+          "sample_values": [
+            "34",
+            "41",
+            "773",
+            "175",
+            "148"
+          ],
+          "min_value": "0",
+          "max_value": "968"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "bound",
+          "dtype": "VARCHAR",
+          "description": "Direction of travel: N, S, E, W (null when not applicable).",
+          "unit": null,
+          "null_fraction": 0.1528,
+          "distinct_count": 8,
+          "sample_values": [
+            "B",
+            "E",
+            "N",
+            "`",
+            "1"
+          ],
+          "min_value": "1",
+          "max_value": "`"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "vehicle",
+          "dtype": "BIGINT",
+          "description": "Vehicle number; 0 means unknown.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1748,
+          "sample_values": [
+            "4427",
+            "8835",
+            "4534",
+            "1373",
+            "4496"
+          ],
+          "min_value": "0",
+          "max_value": "86874"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "delay_hour",
+          "dtype": "BIGINT",
+          "description": "Hour of day (0-23) parsed from delay_time.",
+          "unit": "hour",
+          "null_fraction": 0.0,
+          "distinct_count": 24,
+          "sample_values": [
+            "23",
+            "19",
+            "13",
+            "8",
+            "16"
+          ],
+          "min_value": "0",
+          "max_value": "23"
+        },
+        {
+          "table": "ttc_streetcar_delays",
+          "name": "mode",
+          "dtype": "VARCHAR",
+          "description": "Transit mode: subway, bus or streetcar.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 1,
+          "sample_values": [
+            "streetcar"
+          ],
+          "min_value": "streetcar",
+          "max_value": "streetcar"
+        }
+      ],
+      "time_column": "delay_date",
+      "time_min": "2023-01-01",
+      "time_max": "2024-12-31"
+    },
+    {
+      "dataset": "ttc",
+      "name": "ttc_subway_delay_codes",
+      "description": "Lookup of subway delay codes to plain-English descriptions (e.g. MUPAA = Passenger Assistance Alarm Activated).",
+      "grain": "one row per delay code",
+      "row_count": 140,
+      "columns": [
+        {
+          "table": "ttc_subway_delay_codes",
+          "name": "code",
+          "dtype": "VARCHAR",
+          "description": "Delay code, matches subway_delays.code.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 140,
+          "sample_values": [
+            "EUCH",
+            "EUNT",
+            "EUOE",
+            "MUPAA",
+            "MUPR1"
+          ],
+          "min_value": "EUAC",
+          "max_value": "TUUR"
+        },
+        {
+          "table": "ttc_subway_delay_codes",
+          "name": "description",
+          "dtype": "VARCHAR",
+          "description": "Plain-English description of the code.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 140,
+          "sample_values": [
+            "Air Conditioning",
+            "No Collector Available Â Non Esa Related",
+            "Miscellaneous Other",
+            "Beacon Failure",
+            "Signal Or Related Components Failure"
+          ],
+          "min_value": "Air Conditioning",
+          "max_value": "ÂForce Majeureâ Â Delay Over 90 Min. Re: Weather Or Major Event"
+        }
+      ],
+      "time_column": null,
+      "time_min": null,
+      "time_max": null
+    }
+  ],
+  "joins": [
+    {
+      "dataset": "ttc",
+      "left_table": "ttc_subway_delays",
+      "right_table": "ttc_subway_delay_codes",
+      "on": "ttc_subway_delays.code = ttc_subway_delay_codes.code",
+      "kind": "left",
+      "note": "Use LEFT JOIN: some codes in the incident log are missing from the lookup."
+    },
+    {
+      "dataset": "ttc",
+      "left_table": "ttc_bus_delays",
+      "right_table": "ttc_streetcar_delays",
+      "on": "UNION ALL on shared columns (delay_date, route, min_delay, min_gap, incident, mode)",
+      "kind": "union",
+      "note": "Bus and streetcar share a schema; combine with UNION ALL, not a join."
+    }
+  ],
+  "metrics": [
+    {
+      "dataset": "ttc",
+      "name": "delay_count",
+      "definition": "Number of logged delay incidents.",
+      "sql_expression": "COUNT(*)",
+      "unit": "incidents",
+      "grain": "any (filter by mode/line/route/date as needed)",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": "Includes rows with min_delay = 0 (logged, no measurable delay)."
+    },
+    {
+      "dataset": "ttc",
+      "name": "total_delay_minutes",
+      "definition": "Sum of min_delay across incidents.",
+      "sql_expression": "SUM(min_delay)",
+      "unit": "minutes",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "ttc",
+      "name": "avg_delay_minutes",
+      "definition": "Mean min_delay per incident, including zero-minute rows.",
+      "sql_expression": "AVG(min_delay)",
+      "unit": "minutes",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": "Zero-minute incidents pull the average down; filter min_delay > 0 for 'average of real delays'."
+    },
+    {
+      "dataset": "ttc",
+      "name": "avg_nonzero_delay_minutes",
+      "definition": "Mean min_delay over incidents with a positive delay.",
+      "sql_expression": "AVG(CASE WHEN min_delay > 0 THEN min_delay END)",
+      "unit": "minutes",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "ttc",
+      "name": "delays_per_day",
+      "definition": "Incidents divided by distinct days in the filter window.",
+      "sql_expression": "COUNT(*) * 1.0 / COUNT(DISTINCT delay_date)",
+      "unit": "incidents per day",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": "Counts only days with at least one incident."
+    },
+    {
+      "dataset": "ttc",
+      "name": "avg_gap_minutes",
+      "definition": "Mean headway gap caused by delays.",
+      "sql_expression": "AVG(min_gap)",
+      "unit": "minutes",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "ttc",
+      "name": "major_delay_count",
+      "definition": "Incidents with a delay of 15 minutes or more.",
+      "sql_expression": "SUM(CASE WHEN min_delay >= 15 THEN 1 ELSE 0 END)",
+      "unit": "incidents",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "ttc",
+      "name": "major_delay_share",
+      "definition": "Share of incidents with min_delay >= 15.",
+      "sql_expression": "AVG(CASE WHEN min_delay >= 15 THEN 1.0 ELSE 0.0 END)",
+      "unit": "ratio (0-1)",
+      "grain": "any",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "ttc",
+      "name": "top_delay_code_share",
+      "definition": "Share of subway incidents attributed to the single most common code.",
+      "sql_expression": "MAX(code_count) * 1.0 / SUM(code_count) over grouped-by-code counts",
+      "unit": "ratio (0-1)",
+      "grain": "subway only; group by code first",
+      "tables": [
+        "ttc_subway_delays",
+        "ttc_subway_delay_codes"
+      ],
+      "caveats": "Requires a two-step query: count per code, then compare max to total."
+    },
+    {
+      "dataset": "ttc",
+      "name": "incident_category_minutes",
+      "definition": "Total delay minutes by incident category for bus/streetcar.",
+      "sql_expression": "SUM(min_delay) GROUP BY incident",
+      "unit": "minutes",
+      "grain": "bus and streetcar only",
+      "tables": [
+        "ttc_bus_delays",
+        "ttc_streetcar_delays"
+      ],
+      "caveats": ""
+    }
+  ]
+}

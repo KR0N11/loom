@@ -1,0 +1,54 @@
+{
+  "$defs": {
+    "KeyNumber": {
+      "additionalProperties": false,
+      "description": "A headline figure the verifier will re-derive.",
+      "properties": {
+        "derivation": {
+          "default": "",
+          "title": "Derivation",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "title": "KeyNumber",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "key_numbers": {
+      "items": {
+        "$ref": "#/$defs/KeyNumber"
+      },
+      "title": "Key Numbers",
+      "type": "array"
+    },
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "key_numbers",
+    "summary"
+  ],
+  "title": "KeyNumbersOutput",
+  "type": "object"
+}

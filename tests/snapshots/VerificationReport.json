@@ -1,0 +1,190 @@
+{
+  "$defs": {
+    "CheckStatus": {
+      "enum": [
+        "pass",
+        "fail",
+        "warn",
+        "skipped"
+      ],
+      "title": "CheckStatus",
+      "type": "string"
+    },
+    "ExecutionLanguage": {
+      "enum": [
+        "sql",
+        "pandas"
+      ],
+      "title": "ExecutionLanguage",
+      "type": "string"
+    },
+    "KeyNumber": {
+      "additionalProperties": false,
+      "description": "A headline figure the verifier will re-derive.",
+      "properties": {
+        "derivation": {
+          "default": "",
+          "title": "Derivation",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "title": "KeyNumber",
+      "type": "object"
+    },
+    "QueryRecord": {
+      "additionalProperties": false,
+      "description": "One executed query, kept for the audit appendix.",
+      "properties": {
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "elapsed_s": {
+          "default": 0.0,
+          "title": "Elapsed S",
+          "type": "number"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "language": {
+          "$ref": "#/$defs/ExecutionLanguage"
+        },
+        "ok": {
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "row_count": {
+          "default": 0,
+          "title": "Row Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attempt",
+        "language",
+        "code",
+        "ok"
+      ],
+      "title": "QueryRecord",
+      "type": "object"
+    },
+    "VerificationCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "expected": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "observed": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed"
+        },
+        "status": {
+          "$ref": "#/$defs/CheckStatus"
+        }
+      },
+      "required": [
+        "name",
+        "status",
+        "detail"
+      ],
+      "title": "VerificationCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "$ref": "#/$defs/VerificationCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "flags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Flags",
+      "type": "array"
+    },
+    "overall": {
+      "$ref": "#/$defs/CheckStatus"
+    },
+    "queries": {
+      "items": {
+        "$ref": "#/$defs/QueryRecord"
+      },
+      "title": "Queries",
+      "type": "array"
+    },
+    "reconciled_numbers": {
+      "items": {
+        "$ref": "#/$defs/KeyNumber"
+      },
+      "title": "Reconciled Numbers",
+      "type": "array"
+    }
+  },
+  "required": [
+    "overall",
+    "checks"
+  ],
+  "title": "VerificationReport",
+  "type": "object"
+}

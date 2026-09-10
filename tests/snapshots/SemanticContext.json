@@ -1,0 +1,90 @@
+{
+  "$defs": {
+    "RetrievedDoc": {
+      "additionalProperties": false,
+      "properties": {
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "score": {
+          "title": "Score",
+          "type": "number"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "doc_id",
+        "kind",
+        "name",
+        "text",
+        "score"
+      ],
+      "title": "RetrievedDoc",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "columns": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Columns",
+      "type": "array"
+    },
+    "context_text": {
+      "title": "Context Text",
+      "type": "string"
+    },
+    "docs": {
+      "items": {
+        "$ref": "#/$defs/RetrievedDoc"
+      },
+      "title": "Docs",
+      "type": "array"
+    },
+    "joins": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Joins",
+      "type": "array"
+    },
+    "metrics": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Metrics",
+      "type": "array"
+    },
+    "tables": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Tables",
+      "type": "array"
+    }
+  },
+  "required": [
+    "tables",
+    "columns",
+    "metrics",
+    "joins",
+    "docs",
+    "context_text"
+  ],
+  "title": "SemanticContext",
+  "type": "object"
+}

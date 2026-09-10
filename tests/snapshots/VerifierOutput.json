@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "alternate_sql": {
+      "title": "Alternate Sql",
+      "type": "string"
+    },
+    "rationale": {
+      "default": "",
+      "title": "Rationale",
+      "type": "string"
+    }
+  },
+  "required": [
+    "alternate_sql"
+  ],
+  "title": "VerifierOutput",
+  "type": "object"
+}

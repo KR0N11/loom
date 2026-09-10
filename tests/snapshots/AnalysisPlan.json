@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "AnalysisType": {
+      "enum": [
+        "lookup",
+        "trend",
+        "comparison",
+        "driver"
+      ],
+      "title": "AnalysisType",
+      "type": "string"
+    },
+    "PlanStep": {
+      "additionalProperties": false,
+      "properties": {
+        "depends_on": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Depends On",
+          "type": "array"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "needs_tables": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Needs Tables",
+          "type": "array"
+        },
+        "step_id": {
+          "minimum": 1,
+          "title": "Step Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "step_id",
+        "description"
+      ],
+      "title": "PlanStep",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis_type": {
+      "$ref": "#/$defs/AnalysisType"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "dataset": {
+      "title": "Dataset",
+      "type": "string"
+    },
+    "metrics_needed": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Metrics Needed",
+      "type": "array"
+    },
+    "question": {
+      "title": "Question",
+      "type": "string"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/PlanStep"
+      },
+      "minItems": 1,
+      "title": "Steps",
+      "type": "array"
+    },
+    "time_range_hint": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Time Range Hint"
+    }
+  },
+  "required": [
+    "question",
+    "analysis_type",
+    "dataset",
+    "steps"
+  ],
+  "title": "AnalysisPlan",
+  "type": "object"
+}

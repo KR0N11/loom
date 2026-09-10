@@ -1,0 +1,965 @@
+{
+  "dataset": "nfip",
+  "tables": [
+    {
+      "dataset": "nfip",
+      "name": "nfip_claims",
+      "description": "NFIP flood insurance claims (redacted) for FL, TX, LA, NJ, NY, NC, SC with year of loss 2015 or later. Amounts paid, coverage, damage estimates, flood zone and building attributes per claim. A bounded slice of the full 2.6M-row dataset.",
+      "grain": "one row per claim (one policy, one loss date)",
+      "row_count": 150000,
+      "columns": [
+        {
+          "table": "nfip_claims",
+          "name": "id",
+          "dtype": "VARCHAR",
+          "description": "Unique claim identifier (UUID).",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 150000,
+          "sample_values": [
+            "3e6c98b6-3944-4801-b645-656a23d1251e",
+            "3e6d653e-80af-43bd-af11-e12f57e38e41",
+            "3e6d6e61-a7b8-4f59-9709-0ce8c7246e8b",
+            "3e6e9ff5-7033-4f4b-b05b-e1f5e4f390ab",
+            "3e6ea815-10be-4904-b251-3ddde61872c7"
+          ],
+          "min_value": "000022d7-2633-4799-a70b-6348b1bfb8cc",
+          "max_value": "4c1af10e-ba30-4b40-94c2-23aaf2fc7095"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "date_of_loss",
+          "dtype": "DATE",
+          "description": "Date the flood loss occurred.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 3244,
+          "sample_values": [
+            "2017-07-01",
+            "2024-09-27",
+            "2017-10-30",
+            "2018-09-16",
+            "2020-08-27"
+          ],
+          "min_value": "2015-01-03",
+          "max_value": "2026-05-28"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "year_of_loss",
+          "dtype": "BIGINT",
+          "description": "Calendar year of date_of_loss.",
+          "unit": "year",
+          "null_fraction": 0.0,
+          "distinct_count": 12,
+          "sample_values": [
+            "2025",
+            "2026",
+            "2018",
+            "2019",
+            "2015"
+          ],
+          "min_value": "2015",
+          "max_value": "2026"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "state",
+          "dtype": "VARCHAR",
+          "description": "Two-letter state code of the insured property; join to states.state.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 7,
+          "sample_values": [
+            "FL",
+            "NC",
+            "TX",
+            "LA",
+            "SC"
+          ],
+          "min_value": "FL",
+          "max_value": "TX"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "county_code",
+          "dtype": "VARCHAR",
+          "description": "5-digit FIPS county code.",
+          "unit": null,
+          "null_fraction": 0.001,
+          "distinct_count": 505,
+          "sample_values": [
+            "45051.0",
+            "12031.0",
+            "12021.0",
+            "12113.0",
+            "48007.0"
+          ],
+          "min_value": "12001.0",
+          "max_value": "48507.0"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "reported_zip_code",
+          "dtype": "VARCHAR",
+          "description": "ZIP code of the insured property.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 3970,
+          "sample_values": [
+            "33706",
+            "27962",
+            "77707",
+            "34108",
+            "28214"
+          ],
+          "min_value": "",
+          "max_value": "8854"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "nfip_community_number_current",
+          "dtype": "VARCHAR",
+          "description": "Current NFIP community id; join to communities.community_id_number.",
+          "unit": null,
+          "null_fraction": 0.1401,
+          "distinct_count": 2326,
+          "sample_values": [
+            "125144",
+            "125093",
+            "480103",
+            "360931",
+            "480100"
+          ],
+          "min_value": "0000",
+          "max_value": "485517"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "rated_flood_zone",
+          "dtype": "VARCHAR",
+          "description": "Flood zone used for rating. Zones starting with A or V are Special Flood Hazard Areas (SFHA); X/B/C are lower risk.",
+          "unit": null,
+          "null_fraction": 0.0048,
+          "distinct_count": 54,
+          "sample_values": [
+            "A05",
+            "V22",
+            "A16",
+            "A19",
+            "B"
+          ],
+          "min_value": "A",
+          "max_value": "X"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "flood_zone_current",
+          "dtype": "VARCHAR",
+          "description": "Flood zone on the current effective map.",
+          "unit": null,
+          "null_fraction": 0.1421,
+          "distinct_count": 51,
+          "sample_values": [
+            "A05",
+            "V22",
+            "A16",
+            "A19",
+            "B"
+          ],
+          "min_value": "A",
+          "max_value": "X"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "occupancy_type",
+          "dtype": "BIGINT",
+          "description": "Occupancy code: 1 single-family, 2 two-to-four family, 3 other residential, 4 non-residential, 6 other residential building, 11-18 condo/RCBAP types.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 14,
+          "sample_values": [
+            "13",
+            "19",
+            "15",
+            "16",
+            "17"
+          ],
+          "min_value": "1",
+          "max_value": "19"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "original_construction_date",
+          "dtype": "DATE",
+          "description": "Date the building was originally built.",
+          "unit": null,
+          "null_fraction": 0.0031,
+          "distinct_count": 13595,
+          "sample_values": [
+            "1970-09-14",
+            "2000-07-25",
+            "1983-01-01",
+            "1492-10-12",
+            "1986-01-01"
+          ],
+          "min_value": "1492-10-12",
+          "max_value": "2025-09-29"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "elevated_building_indicator",
+          "dtype": "BOOLEAN",
+          "description": "True if the building is elevated.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "false",
+            "true"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "primary_residence_indicator",
+          "dtype": "BOOLEAN",
+          "description": "True if the insured's primary residence.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "false",
+            "true"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "post_firm_construction_indicator",
+          "dtype": "BOOLEAN",
+          "description": "True if built after the community's first Flood Insurance Rate Map.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "false",
+            "true"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "amount_paid_on_building_claim",
+          "dtype": "DOUBLE",
+          "description": "Dollars paid for building damage.",
+          "unit": "USD",
+          "null_fraction": 0.141,
+          "distinct_count": 106940,
+          "sample_values": [
+            "60500.0",
+            "23169.69",
+            "20668.39",
+            "15388.75",
+            "1660.14"
+          ],
+          "min_value": "-135125.37",
+          "max_value": "8758773.33"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "amount_paid_on_contents_claim",
+          "dtype": "DOUBLE",
+          "description": "Dollars paid for contents damage.",
+          "unit": "USD",
+          "null_fraction": 0.141,
+          "distinct_count": 43939,
+          "sample_values": [
+            "7888.16",
+            "6255.34",
+            "35093.0",
+            "56961.85",
+            "38763.72"
+          ],
+          "min_value": "-10000.0",
+          "max_value": "757048.95"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "amount_paid_on_increased_cost_of_compliance_claim",
+          "dtype": "DOUBLE",
+          "description": "Dollars paid under Increased Cost of Compliance (ICC) coverage.",
+          "unit": "USD",
+          "null_fraction": 0.141,
+          "distinct_count": 351,
+          "sample_values": [
+            "29500.0",
+            "25618.66",
+            "13057.6",
+            "14000.0",
+            "28600.0"
+          ],
+          "min_value": "0.0",
+          "max_value": "181524.0"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "total_building_insurance_coverage",
+          "dtype": "DOUBLE",
+          "description": "Building coverage limit.",
+          "unit": "USD",
+          "null_fraction": 0.0,
+          "distinct_count": 3963,
+          "sample_values": [
+            "34900.0",
+            "220000.0",
+            "181500.0",
+            "120000.0",
+            "232000.0"
+          ],
+          "min_value": "0.0",
+          "max_value": "176000000.0"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "total_contents_insurance_coverage",
+          "dtype": "DOUBLE",
+          "description": "Contents coverage limit.",
+          "unit": "USD",
+          "null_fraction": 0.0,
+          "distinct_count": 1330,
+          "sample_values": [
+            "67000.0",
+            "80000.0",
+            "68000.0",
+            "86000.0",
+            "61000.0"
+          ],
+          "min_value": "0.0",
+          "max_value": "500000.0"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "building_damage_amount",
+          "dtype": "DOUBLE",
+          "description": "Adjuster's estimate of building damage.",
+          "unit": "USD",
+          "null_fraction": 0.1474,
+          "distinct_count": 78769,
+          "sample_values": [
+            "10666.0",
+            "39717.0",
+            "106443.0",
+            "58006.0",
+            "81950.0"
+          ],
+          "min_value": "0.0",
+          "max_value": "52840990.0"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "contents_damage_amount",
+          "dtype": "DOUBLE",
+          "description": "Adjuster's estimate of contents damage.",
+          "unit": "USD",
+          "null_fraction": 0.4714,
+          "distinct_count": 38498,
+          "sample_values": [
+            "104133.0",
+            "20804.0",
+            "1814.0",
+            "44001.0",
+            "10120.0"
+          ],
+          "min_value": "0.0",
+          "max_value": "11462021.0"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "net_building_payment_amount",
+          "dtype": "DOUBLE",
+          "description": "Net building payment after adjustments.",
+          "unit": "USD",
+          "null_fraction": 0.0,
+          "distinct_count": 106951,
+          "sample_values": [
+            "5036.13",
+            "30000.0",
+            "7226.83",
+            "13628.14",
+            "5272.41"
+          ],
+          "min_value": "-135125.37",
+          "max_value": "8758773.33"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "net_contents_payment_amount",
+          "dtype": "DOUBLE",
+          "description": "Net contents payment after adjustments.",
+          "unit": "USD",
+          "null_fraction": 0.0,
+          "distinct_count": 43944,
+          "sample_values": [
+            "7888.16",
+            "6255.34",
+            "35093.0",
+            "56961.85",
+            "38763.72"
+          ],
+          "min_value": "-10000.0",
+          "max_value": "757048.95"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "cause_of_damage",
+          "dtype": "VARCHAR",
+          "description": "Cause code as text: 0 other, 1 tidal water overflow, 2 stream/river overflow, 3 alluvial fan, 4 accumulation of rainfall/snowmelt, 7 erosion, 8 mudflow, 9 earth movement.",
+          "unit": null,
+          "null_fraction": 0.0152,
+          "distinct_count": 11,
+          "sample_values": [
+            "B",
+            "3",
+            "1",
+            "0",
+            "A"
+          ],
+          "min_value": "0",
+          "max_value": "D"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "water_depth",
+          "dtype": "BIGINT",
+          "description": "Depth of flood water in the building.",
+          "unit": "feet",
+          "null_fraction": 0.1133,
+          "distinct_count": 229,
+          "sample_values": [
+            "41",
+            "34",
+            "72",
+            "129",
+            "109"
+          ],
+          "min_value": "-138",
+          "max_value": "990"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "number_of_floors_in_the_insured_building",
+          "dtype": "BIGINT",
+          "description": "Number of floors.",
+          "unit": "floors",
+          "null_fraction": 0.0056,
+          "distinct_count": 6,
+          "sample_values": [
+            "1",
+            "5",
+            "2",
+            "3",
+            "4"
+          ],
+          "min_value": "1",
+          "max_value": "6"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "policy_count",
+          "dtype": "BIGINT",
+          "description": "Number of policies/units on the claim (usually 1).",
+          "unit": "policies",
+          "null_fraction": 0.0,
+          "distinct_count": 227,
+          "sample_values": [
+            "72",
+            "34",
+            "195",
+            "350",
+            "110"
+          ],
+          "min_value": "1",
+          "max_value": "704"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "rate_method",
+          "dtype": "VARCHAR",
+          "description": "Rating method code.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 17,
+          "sample_values": [
+            "G",
+            "8",
+            "6",
+            "B",
+            "RatingEngine"
+          ],
+          "min_value": "1",
+          "max_value": "W"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "flood_event",
+          "dtype": "VARCHAR",
+          "description": "Named flood event, e.g. Hurricane Ian; null for unnamed events.",
+          "unit": null,
+          "null_fraction": 0.1211,
+          "distinct_count": 61,
+          "sample_values": [
+            "Hurricane Harvey",
+            "Hurricane Milton",
+            "Tropical Storm Ophelia",
+            "Tropical Storm Claudette",
+            "October severe storms"
+          ],
+          "min_value": "2021 Mid-Spring Severe Storms",
+          "max_value": "Winter Storm Jonas"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "total_paid",
+          "dtype": "DOUBLE",
+          "description": "Derived: building + contents + ICC amounts paid (nulls treated as 0).",
+          "unit": "USD",
+          "null_fraction": 0.0,
+          "distinct_count": 111618,
+          "sample_values": [
+            "60500.0",
+            "23169.69",
+            "20668.39",
+            "190949.36",
+            "15388.75"
+          ],
+          "min_value": "-35127.62",
+          "max_value": "8758773.33"
+        },
+        {
+          "table": "nfip_claims",
+          "name": "is_sfha",
+          "dtype": "BOOLEAN",
+          "description": "Derived: rated_flood_zone starts with A or V (Special Flood Hazard Area).",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "true",
+            "false"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        }
+      ],
+      "time_column": "date_of_loss",
+      "time_min": "2015-01-03",
+      "time_max": "2026-05-28"
+    },
+    {
+      "dataset": "nfip",
+      "name": "nfip_communities",
+      "description": "NFIP Community Status Book: every community in the slice states with its NFIP participation status and initial flood-map dates.",
+      "grain": "one row per NFIP community",
+      "row_count": 5200,
+      "columns": [
+        {
+          "table": "nfip_communities",
+          "name": "community_id_number",
+          "dtype": "VARCHAR",
+          "description": "6-character NFIP community id; join key to claims.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 5200,
+          "sample_values": [
+            "120015",
+            "120043",
+            "120051",
+            "120059",
+            "120075"
+          ],
+          "min_value": "120001",
+          "max_value": "485527"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "community_name",
+          "dtype": "VARCHAR",
+          "description": "Community name as listed by FEMA.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 4970,
+          "sample_values": [
+            "MELBOURNE, CITY OF",
+            "CHARLOTTE COUNTY *",
+            "PONCE DE LEON, TOWN OF",
+            "TALLAHASSEE, CITY OF",
+            "CALLAHAN, TOWN OF"
+          ],
+          "min_value": "ABBEVILLE COUNTY *",
+          "max_value": "ZWOLLE, TOWN OF"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "county",
+          "dtype": "VARCHAR",
+          "description": "County name.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 709,
+          "sample_values": [
+            "DUVAL COUNTY",
+            "HAMILTON COUNTY",
+            "PASCO COUNTY",
+            "PINELLAS COUNTY",
+            "PUTNAM COUNTY"
+          ],
+          "min_value": "ABBEVILLE COUNTY",
+          "max_value": "ZAVALA COUNTY"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "state",
+          "dtype": "VARCHAR",
+          "description": "Two-letter state code.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 7,
+          "sample_values": [
+            "TX",
+            "FL",
+            "NC",
+            "SC",
+            "NJ"
+          ],
+          "min_value": "FL",
+          "max_value": "TX"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "initial_flood_hazard_boundary_map",
+          "dtype": "DATE",
+          "description": "Date of the first flood hazard boundary map.",
+          "unit": null,
+          "null_fraction": 0.171,
+          "distinct_count": 534,
+          "sample_values": [
+            "1974-09-13",
+            "1973-04-06",
+            "1971-08-07",
+            "1973-11-23",
+            "1974-11-22"
+          ],
+          "min_value": "1970-02-26",
+          "max_value": "1996-05-17"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "initial_flood_insurance_rate_map",
+          "dtype": "DATE",
+          "description": "Date of the first Flood Insurance Rate Map (FIRM).",
+          "unit": null,
+          "null_fraction": 0.0392,
+          "distinct_count": 1025,
+          "sample_values": [
+            "1987-06-18",
+            "1992-08-18",
+            "2013-06-03",
+            "1987-08-04",
+            "1986-02-05"
+          ],
+          "min_value": "1970-02-26",
+          "max_value": "2027-01-22"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "participating_in_nfip",
+          "dtype": "BOOLEAN",
+          "description": "True if the community currently participates in NFIP.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "true",
+            "false"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "tribal",
+          "dtype": "BOOLEAN",
+          "description": "True for tribal communities.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "false",
+            "true"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "class_rating",
+          "dtype": "BIGINT",
+          "description": "Community Rating System class (1 best, 10 none); null if not rated.",
+          "unit": null,
+          "null_fraction": 0.8642,
+          "distinct_count": 9,
+          "sample_values": [
+            "8",
+            "5",
+            "7",
+            "9",
+            "6"
+          ],
+          "min_value": "2",
+          "max_value": "10"
+        },
+        {
+          "table": "nfip_communities",
+          "name": "sanction",
+          "dtype": "BOOLEAN",
+          "description": "True if the community is sanctioned / suspended.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 2,
+          "sample_values": [
+            "false",
+            "true"
+          ],
+          "min_value": "false",
+          "max_value": "true"
+        }
+      ],
+      "time_column": null,
+      "time_min": null,
+      "time_max": null
+    },
+    {
+      "dataset": "nfip",
+      "name": "nfip_states",
+      "description": "States and territories with their full name and FEMA region number.",
+      "grain": "one row per state",
+      "row_count": 56,
+      "columns": [
+        {
+          "table": "nfip_states",
+          "name": "state",
+          "dtype": "VARCHAR",
+          "description": "Two-letter state or territory code.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 56,
+          "sample_values": [
+            "CA",
+            "KY",
+            "ME",
+            "NH",
+            "NV"
+          ],
+          "min_value": "AK",
+          "max_value": "WY"
+        },
+        {
+          "table": "nfip_states",
+          "name": "state_name",
+          "dtype": "VARCHAR",
+          "description": "Full state name.",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 56,
+          "sample_values": [
+            "Hawaii",
+            "Virginia",
+            "Vermont",
+            "California",
+            "Guam"
+          ],
+          "min_value": "Alabama",
+          "max_value": "Wyoming"
+        },
+        {
+          "table": "nfip_states",
+          "name": "fema_region",
+          "dtype": "BIGINT",
+          "description": "FEMA region number (1-10).",
+          "unit": null,
+          "null_fraction": 0.0,
+          "distinct_count": 10,
+          "sample_values": [
+            "1",
+            "6",
+            "9",
+            "7",
+            "8"
+          ],
+          "min_value": "1",
+          "max_value": "10"
+        }
+      ],
+      "time_column": null,
+      "time_min": null,
+      "time_max": null
+    }
+  ],
+  "joins": [
+    {
+      "dataset": "nfip",
+      "left_table": "nfip_claims",
+      "right_table": "nfip_states",
+      "on": "nfip_claims.state = nfip_states.state",
+      "kind": "left",
+      "note": "Every claim state exists in states; use for state names and FEMA regions."
+    },
+    {
+      "dataset": "nfip",
+      "left_table": "nfip_claims",
+      "right_table": "nfip_communities",
+      "on": "nfip_claims.nfip_community_number_current = nfip_communities.community_id_number",
+      "kind": "left",
+      "note": "LEFT JOIN: some claims have a null or retired community number."
+    }
+  ],
+  "metrics": [
+    {
+      "dataset": "nfip",
+      "name": "claim_count",
+      "definition": "Number of claims.",
+      "sql_expression": "COUNT(*)",
+      "unit": "claims",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "nfip",
+      "name": "total_paid",
+      "definition": "Total dollars paid: building + contents + ICC.",
+      "sql_expression": "SUM(total_paid)",
+      "unit": "USD",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": "Closed-without-payment claims contribute 0, not null."
+    },
+    {
+      "dataset": "nfip",
+      "name": "avg_claim_severity",
+      "definition": "Mean total_paid per claim including zero-paid claims.",
+      "sql_expression": "AVG(total_paid)",
+      "unit": "USD per claim",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": "Use AVG(CASE WHEN total_paid > 0 THEN total_paid END) for paid claims only."
+    },
+    {
+      "dataset": "nfip",
+      "name": "paid_claim_share",
+      "definition": "Share of claims with any payment.",
+      "sql_expression": "AVG(CASE WHEN total_paid > 0 THEN 1.0 ELSE 0.0 END)",
+      "unit": "ratio (0-1)",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "nfip",
+      "name": "claim_frequency_per_policy",
+      "definition": "Claims per policy on the claim records.",
+      "sql_expression": "COUNT(*) * 1.0 / SUM(policy_count)",
+      "unit": "claims per policy",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": "policy_count is per-claim, not the exposure base; this is not a true frequency. True frequency needs the policies dataset, which is not loaded."
+    },
+    {
+      "dataset": "nfip",
+      "name": "building_loss_ratio",
+      "definition": "Building dollars paid divided by building coverage limit.",
+      "sql_expression": "SUM(amount_paid_on_building_claim) / NULLIF(SUM(total_building_insurance_coverage), 0)",
+      "unit": "ratio",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": "Coverage is per claim, not per policy-year, so this overstates a true loss ratio."
+    },
+    {
+      "dataset": "nfip",
+      "name": "sfha_claim_share",
+      "definition": "Share of claims in Special Flood Hazard Areas (rated_flood_zone starting with A or V).",
+      "sql_expression": "AVG(CASE WHEN is_sfha THEN 1.0 ELSE 0.0 END)",
+      "unit": "ratio (0-1)",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "nfip",
+      "name": "median_water_depth",
+      "definition": "Median reported flood water depth.",
+      "sql_expression": "MEDIAN(water_depth)",
+      "unit": "feet",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": "water_depth is null for many claims; the median ignores nulls."
+    },
+    {
+      "dataset": "nfip",
+      "name": "avg_building_damage",
+      "definition": "Mean adjuster estimate of building damage.",
+      "sql_expression": "AVG(building_damage_amount)",
+      "unit": "USD",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "nfip",
+      "name": "payment_to_damage_ratio",
+      "definition": "Building dollars paid divided by estimated building damage.",
+      "sql_expression": "SUM(amount_paid_on_building_claim) / NULLIF(SUM(building_damage_amount), 0)",
+      "unit": "ratio",
+      "grain": "any",
+      "tables": [
+        "nfip_claims"
+      ],
+      "caveats": ""
+    },
+    {
+      "dataset": "nfip",
+      "name": "claims_per_community",
+      "definition": "Claims divided by distinct participating communities in scope.",
+      "sql_expression": "COUNT(*) * 1.0 / COUNT(DISTINCT nfip_community_number_current)",
+      "unit": "claims per community",
+      "grain": "any",
+      "tables": [
+        "nfip_claims",
+        "nfip_communities"
+      ],
+      "caveats": ""
+    }
+  ]
+}

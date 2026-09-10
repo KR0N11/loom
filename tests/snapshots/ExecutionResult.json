@@ -1,0 +1,155 @@
+{
+  "$defs": {
+    "ExecutionLanguage": {
+      "enum": [
+        "sql",
+        "pandas"
+      ],
+      "title": "ExecutionLanguage",
+      "type": "string"
+    },
+    "KeyNumber": {
+      "additionalProperties": false,
+      "description": "A headline figure the verifier will re-derive.",
+      "properties": {
+        "derivation": {
+          "default": "",
+          "title": "Derivation",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "title": "KeyNumber",
+      "type": "object"
+    },
+    "QueryRecord": {
+      "additionalProperties": false,
+      "description": "One executed query, kept for the audit appendix.",
+      "properties": {
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "elapsed_s": {
+          "default": 0.0,
+          "title": "Elapsed S",
+          "type": "number"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "language": {
+          "$ref": "#/$defs/ExecutionLanguage"
+        },
+        "ok": {
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "row_count": {
+          "default": 0,
+          "title": "Row Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attempt",
+        "language",
+        "code",
+        "ok"
+      ],
+      "title": "QueryRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "columns": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Columns",
+      "type": "array"
+    },
+    "key_numbers": {
+      "items": {
+        "$ref": "#/$defs/KeyNumber"
+      },
+      "title": "Key Numbers",
+      "type": "array"
+    },
+    "language": {
+      "$ref": "#/$defs/ExecutionLanguage"
+    },
+    "queries": {
+      "items": {
+        "$ref": "#/$defs/QueryRecord"
+      },
+      "title": "Queries",
+      "type": "array"
+    },
+    "row_count": {
+      "title": "Row Count",
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "title": "Rows",
+      "type": "array"
+    },
+    "step_id": {
+      "title": "Step Id",
+      "type": "integer"
+    },
+    "summary": {
+      "default": "",
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "step_id",
+    "language",
+    "code",
+    "columns",
+    "rows",
+    "row_count"
+  ],
+  "title": "ExecutionResult",
+  "type": "object"
+}
